@@ -1,0 +1,329 @@
+@font-face {
+	font-family: Test;
+	src: url('../Keraton/font/KozGoPr6N-Light.otf');
+	
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	background: url("../img/bg3.jpg") no-repeat fixed;
+	background-size: cover;
+	font-family: Test, cursive;
+	font-size: 10pt;
+}
+
+.header {
+	font-weight: bold;
+	font-size:20pt;
+}
+
+#cover {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	background:rgba(0,0,0, 0.6);
+	z-index: 998;
+	position: absolute;	
+}
+
+#close {
+	position: absolute;
+	z-index: 999;
+}
+
+#below {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	position: absolute;
+}
+
+#popup {
+	position: absolute;
+}
+
+.red {
+	color: red;
+	font-size: 10px;
+}
+
+#application {
+	font-size:7.5pt;
+}
+
+/* NAVIGATION */
+
+#navigation {
+	padding-top: 3%;
+	padding-left: 7%;
+}
+
+#navigation div {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+#links {
+	padding-left:2%;
+}
+
+#links ul{
+	list-style: none;
+	text-align: center;
+	padding-left: 30%;
+}
+#links ul li {
+	display: inline;
+	margin: 10px;
+	font-size: 10pt;	
+}
+
+a {
+	text-decoration: none;
+	cursor: pointer;
+}
+
+#links ul li a:hover {
+	border-bottom: 3px solid #3d2602;
+}
+
+#links ul li a:link, #links ul li a:visited {
+	color: #684804; 
+}
+
+#links ul li a:active {
+	color: #402c02;
+	border-bottom: 3px solid #3d2602;
+}
+
+.clicked {
+	border-bottom: 3px solid #3d2602;
+}
+
+/* LOGO */
+
+
+
+#logo {
+	width: 20%;
+	position: absolute;
+	top: 0;
+}
+
+#icon {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 20px;
+}
+
+/* CONTENT */
+#wrapper { 
+	width:100%; 
+	height:80%; 
+	position:relative; 
+	top:0; 
+	left:0; 
+	overflow: hidden;
+	margin-top: 1%;
+}
+ 
+#mask { 
+	width:700%; 
+	height:100%; 
+	
+}
+
+.box {
+	height:100%;
+	width: 14%;
+	float:left;
+	
+	
+}
+
+.content	{ 
+	width:85%; 
+	height:80%; 
+	position:relative;
+	top:40px;
+	padding:2%;
+	margin-left:6.5%; 
+	background:rgba(255,255,255, 0.3);
+	border-radius:15px; 
+	-moz-border-radius:15px; 
+	-webkit-border-radius:15px; 
+	overflow-y: auto;
+	overflow-x: hidden;
+	
+}
+
+
+#gallery .content {
+	overflow-y: hidden;
+}
+
+#events1 {
+	margin-left: 30%;
+}
+
+#events2 {
+	margin-left: 28%;
+}
+
+#welcome {
+	display:none;
+}
+
+#welcome img {
+	float: left;
+	margin-right: 10px;
+}
+
+#card_information {
+	text-align:left;
+	font-size:15px;
+	text-decoration:none;
+	margin-left:10px;
+}
+
+table {
+	font-size:10px;
+}
+
+#vendors td {
+	text-align: center;
+}
+
+table td {
+	padding:8px;
+	text-align:center;
+}
+
+table tr th {
+	text-align:center;
+	text-decoration: underline;
+}
+
+#back {
+	vertical-align:middle;
+}
+
+#back_link {
+	font-size: 14pt;
+}
+
+#slide {
+	overflow: hidden;
+}
+
+#slide img {
+	width: 100%;
+}
+
+/* COMMUNITY */
+
+.comm_header {
+	font-size: 15pt;
+	font-weight: bold;
+	color: #684804;
+}
+
+.vendors {
+	color: black;
+}
+
+::-webkit-scrollbar {
+      width: 10px;
+} /* this targets the default scrollbar (compulsory) */
+::-webkit-scrollbar-track {
+      background-color: rgba(255,255,255, 0.3);
+      -webkit-border-radius: 10px;
+} /* the new scrollbar will have a flat appearance with the set background color */
+::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.2);
+      -webkit-border-radius: 10px;
+} /* this will style the thumb, ignoring the track */
+::-webkit-scrollbar-button {
+      background-color: #7c2929;
+} /* optionally, you can style the top and the bottom buttons (left and right for horizontal bars) */
+::-webkit-scrollbar-corner {
+      background-color: black;
+} /* if both the vertical and the horizontal bars appear, then perhaps the right bottom corner also needs to be styled */
+
+/* ISAUW CARD */
+.info {
+	display: none;
+}
+
+.info div{
+	display: inline-block;
+	vertical-align: bottom;
+}
+
+.info img {
+	width:150px;
+	padding-right:10px;
+}
+
+a:hover div.info
+{
+ padding:10px;
+ position: absolute;
+ display:inline-block;
+ background: rgba(0, 0, 0, .6);
+ color: white;
+ text-align: left;
+ overflow: auto;
+ clear: none;
+}
+
+strong {
+	text-decoration: underline;
+	color: red;
+}
+
+/* FOOTER */
+
+#footer {
+	position: absolute;
+	bottom: 0;
+	font-size: 10px;
+	width: 100%;
+	text-align: center;
+}
+
+.sponsor {
+	float: left;
+	height: 20%;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+div.img-wrapper{
+	float:left; /* important */
+	position:relative; /* important(so we can absolutely position the description div */
+}
+div.img-description{
+	position:absolute; /* absolute position (so we can position it where we want)*/
+	bottom:0px; /* position will be on bottom */
+	left:0px;
+	width:100%;
+	/* styling bellow */
+	background-color:black;
+	font-family: 'tahoma';
+	font-size:15px;
+	color:white;
+	opacity:0.6; /* transparency */
+	filter:alpha(opacity=60); /* IE transparency */
+}
+.img-description p{
+	padding:10px;
+	margin:0px;
+}

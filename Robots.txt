@@ -1,0 +1,8 @@
+User-Agent: *
+Disallow: 
+Disallow: /Keraton/
+Disallow: /SeattleMalamRakyat/
+Disallow: /contact/
+Disallow: /2008/
+Disallow: /isauwcard/
+Disallow: /forum/
