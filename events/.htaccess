@@ -1,0 +1,2 @@
+RewriteRule ^(Booklet_updated.pdf) - [F,L,NC]
+RewriteRule ^(sg-download.php) - [F,L,NC]

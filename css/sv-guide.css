@@ -1,0 +1,30 @@
+#sv-verify {
+	position: fixed;
+	opacity: 0;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.5);
+	text-align: center;
+}
+
+#sv-verify div {
+	background-color: #fff;
+	border-radius: 5%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	padding: 2em;
+	transform: translate(-50%, -50%);
+}
+
+#sv-verify input {
+	margin-bottom: 1em;
+}
+
+#sv-verify span {
+	color: red;
+	opacity: 0;
+}
