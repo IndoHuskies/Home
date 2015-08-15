@@ -31,42 +31,13 @@
                 <div class="item">
                     <a href="<?= $row['link'] ?>"><img src="<?= $row['img'] ?>" style="width:100%; height:auto;"></a>
                     <div class="container">
-                        <!-- <div class="carousel-caption">
-                            <h1>One more for good measure.</h1>
-                            <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. </p>
-                        </div> -->
+                        
                     </div>
                 </div>
             <?php
                 }
             ?>
-    		<!-- <div class="item active">
-    			<img src="http://isauw.org/isauwcard/img/banner1-1.jpg" alt="First slide">
-    			<div class="container">
-    				<div class="carousel-caption">
-    					<!-- <h1>ISAUW Card</h1>
-    					<p>More then just a student card</p>
-    				</div>
-    			</div>
-    		</div> -->
-    		<!-- <div class="item">
-    			<img src="http://isauw.org/newsite/ISAUW_copy/img/eventsample.jpg" alt="Second slide">
-    			<div class="container">
-    				<div class="carousel-caption">
-    					<h1>Another example headline.</h1>
-    					<p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. </p>
-    				</div>
-    			</div>
-    		</div>
-    		<div class="item">
-    			<img src="http://4.bp.blogspot.com/-64WtmiCljEs/UcB9EI2B85I/AAAAAAAAAQw/JAhP74VOTaE/s1600/Reog+Ponorogo.jpg" alt="Third slide">
-    			<div class="container">
-    				<div class="carousel-caption">
-    					<h1>One more for good measure.</h1>
-    					<p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. </p>
-    				</div>
-    			</div>
-    		</div> -->
+    		
     	</div>
         <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>

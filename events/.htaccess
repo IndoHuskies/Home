@@ -1,2 +1,5 @@
+Options +FollowSymLinks
+RewriteEngine On
+
 RewriteRule ^(Booklet_updated.pdf) - [F,L,NC]
-RewriteRule ^(sg-download.php) - [F,L,NC]
+RewriteRule ^(.*)$ events-template.php?name=$1 [QSA]

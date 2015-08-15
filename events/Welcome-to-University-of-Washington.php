@@ -156,7 +156,7 @@
                 success: function(data){
                     if(data === 'true') {
                         $('#sv-verify span').css('opacity', 0);
-                        window.location.href = 'sg-download.php';
+                        window.location.href = 'sg-download.php?pass=' + passInput;
                     } else {
                         $('#sv-verify span').css('opacity', 1);
                     }

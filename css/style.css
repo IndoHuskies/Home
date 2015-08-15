@@ -715,3 +715,64 @@ div.img-description{
 	margin:0px;
 	font-weight: 700;
 }
+
+/*=====
+VOLUNTEER KERATON
+=======*/
+
+#job-desc > ul {
+        list-style: none;
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 0px;
+    }
+
+    #job-desc  h3 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .volunteer-desc {
+        display: inline-block;
+        margin: 20px 0 0 0;
+        width: 325px;
+        vertical-align: text-top;
+    }
+
+    #job-desc .panel-body ul {
+        text-align: left;
+    }
+
+    #job-desc .panel {
+        border-color: black;
+    }
+
+    #job-desc .panel-heading {
+        color: white;
+        background-color: rgb(129, 20, 27);
+    }
+
+    #inputWork select {
+        margin-bottom: 10px;
+    }
+
+    #disclaimerModal {
+        top: 50%;
+    }
+
+    #disclaimerModal p {
+        font-size: 16px;
+    }
+
+    hr.vol {
+        clear: both;
+    }
+
+
+    .fine-print {
+        font-size: 14px;
+        font-style: italic;
+        margin-top: 20px;
+        text-align: center;
+    }
