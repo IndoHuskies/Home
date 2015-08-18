@@ -2,4 +2,7 @@ Options +FollowSymLinks
 RewriteEngine On
 
 RewriteRule ^(Booklet_updated.pdf) - [F,L,NC]
+RewriteCond %{REQUEST_URI} !/events/Welcome-to-University-of-Washington.php [NC]
+RewriteCond %{REQUEST_URI} !/events/sg-verify.php [NC]
+RewriteCond %{REQUEST_URI} !/events/sg-download.php [NC]
 RewriteRule ^(.*)$ events-template.php?name=$1 [QSA]

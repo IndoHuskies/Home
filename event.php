@@ -106,6 +106,9 @@
 
         function eventModel(item) {
             var link = 'events/' + item.redirect;
+            if(item.redirect === 'Welcome-to-University-of-Washington') {
+                link = item.link;
+            }
             return '<a href="'+link+'"><div class="ch-item ch-img-1"><div class="ch-info"><h3>'+item.name+'</h3><p>view detail</p></div><div class="event-past"><img class="img-circle" src="'+item.media+'" alt="Generic placeholder image"></div></div></a>';
         }
 
@@ -114,7 +117,10 @@
             var event_desc = item.description.substring(0,200);
 
             var link = 'events/' + item.redirect;
-            return '<div class="row featurette event-up"><div class="col-md-5 event-img"><img class="img-thumbnail" src="'+item.media+'"></div><div class="col-md-7 event-info"><h2>'+item.name+'</h2><p><strong>Date:</strong> '+event_date+'<br><strong>Time:</strong> '+item.time+'<br><strong>Location:</strong> ' + item.location + '</p><p class="lead">'+event_desc+'...</p><p><a class="btn btn-default" href="'+link+'" role="button">View details &raquo;</a></p></div></div><hr>';
+            if(item.redirect === 'Welcome-to-University-of-Washington') {
+                link = item.link;
+            }            
+            return '<div class="row featurette event-up"><div class="col-md-5 event-img"><img class="img-thumbnail" src="'+item.media+'"></div><div class="col-md-7 event-info"><h2>'+item.name+'</h2><p><strong>Date:</strong> '+event_date+'<br><strong>Time:</strong> '+link+'<br><strong>Location:</strong> ' + item.location + '</p><p class="lead">'+event_desc+'...</p><p><a class="btn btn-default" href="'+link+'" role="button">View details &raquo;</a></p></div></div><hr>';
         }
 
         function timeConverter(UNIX_timestamp){
