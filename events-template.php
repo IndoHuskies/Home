@@ -1,5 +1,5 @@
 <?php
-    require_once '../database.php';
+    require_once 'database.php';
 
     $event_redirect = $_GET['name'];
 
@@ -13,7 +13,7 @@
     $result = $stmt->fetch(PDO::FETCH_OBJ);
     $event_name = $result->name;
 
-	TopHeader("ISAUW | " . $event_name, "../");
+	TopHeader("ISAUW | " . $event_name, "");
 
 	EventJumbotron();
 ?>

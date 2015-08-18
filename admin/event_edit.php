@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$stmt->bindParam(':media', $media, PDO::PARAM_STR);   
 	$stmt->execute();
 
-	header("Location: ../admin/dashboard.html");
+	header("Location: ../admin/dashboard.php");
 } else {
 	$sql = "SELECT * FROM event WHERE id = :id ";
 

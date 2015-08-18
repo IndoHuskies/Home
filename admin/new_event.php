@@ -15,10 +15,15 @@
 	$end_t = $_POST['end_time'];
 
 	$time = $conn->quote($start_h . "." . $start_m . " " . $start_t . " to " . $end_h . "." . $end_m . " " . $end_t);
-	$link = "/events/".str_replace(" ","-",$_POST['event_name']).".php";
+	// Change to redirect (17 August 2015, mcindy)
+	//$link = "/events/".str_replace(" ","-",$_POST['event_name']).".php";
+	$redirect = preg_replace('/[^a-zA-Z0-9]+/', '-', $_POST['event_name']);
+	$redirect = rtrim($redirect, "-");
+	
 	//Convert date to epoch time
 	$countdown = strtotime($date) * 1000;
 
+	/* Changed to new feature (17 August 2015, mcindy)
 	//Create new file based on input
 		//Get link name;
 	$dir = "../events/";
@@ -50,12 +55,13 @@
 	$fp = fopen($dir.$php_file_name, "w"); 
 	fwrite($fp, $new_member_file); 
 	fclose($fp);
-
+	*/
+	
 	//SQL to be performed AFTER new file has been created
 	$sql = "INSERT INTO event 
-			(name, date, location, description, time, countdown, link, media) 
+			(name, date, location, description, time, countdown, redirect, media) 
 			VALUES 
-			(:name, :date, :location, :description, :time, :countdown, :link, :media)";
+			(:name, :date, :location, :description, :time, :countdown, :redirect, :media)";
 
 	$stmt = $conn->prepare($sql);
 
@@ -66,7 +72,8 @@
 	// use PARAM_STR although a number  
 	$stmt->bindParam(':time', $time, PDO::PARAM_STR); 
 	$stmt->bindParam(':countdown', $countdown, PDO::PARAM_INT);
-	$stmt->bindParam(':link', $link, PDO::PARAM_STR);   
+	$stmt->bindParam(':redirect', $redirect, PDO::PARAM_STR);   
+	//$stmt->bindParam(':link', $link, PDO::PARAM_STR);   
 	$stmt->bindParam(':media', $media, PDO::PARAM_STR);   
 	$stmt->execute();
 

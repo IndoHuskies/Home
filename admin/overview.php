@@ -83,7 +83,7 @@
 									<td><?= $row['location']; ?></td>
 									<td><?= $row['date']; ?></td>
 									<td><?= $row['time']; ?></td>
-									<td><a href="event_edit.php?id=<?= $row['id']; ?>" class="btn btn-default event-edit">Edit</a></td>
+									<td><a href="event_edit.php?id=<?=$row['id']; ?>" class="btn btn-default event-edit">Edit</a></td>
 								</tr>
 								<?php
 							}
@@ -98,14 +98,19 @@
 $(document).ready(function() {
 		$('#event-table').DataTable();
 
+		
 		$(".event-edit").click(function(e){
 			e.preventDefault();
-			var link = $(this).attr("href");
+			var link = $(this).attr('href');
 			console.log(link);
-			// alert(link);
+			//alert(link);
 			$.ajax({url:link,success:function(result){
+				//alert(result);
 				$("#main_content").html(result);
 			}});
 		});
-	});
+
+
+});
+
 </script>

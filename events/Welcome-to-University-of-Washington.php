@@ -36,7 +36,7 @@
     				<h2 class="row"><?= $result->name ?></h2>
 
     				<div id="event-img">
-    					<img class="featurette-image img-responsive img-circle" src="../<?= $result->media ?>" alt="Generic placeholder image">
+    					<img class="featurette-image img-responsive img-thumbnail" src="../<?= $result->media ?>" alt="Generic placeholder image">
     				</div>
 
     				<p class="lead" id="event-detail">
