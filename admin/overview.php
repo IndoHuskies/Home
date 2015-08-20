@@ -98,8 +98,8 @@
 $(document).ready(function() {
 		$('#event-table').DataTable();
 
-		
-		$(".event-edit").click(function(e){
+
+		$("#event-table").on("click", '.event-edit' , function(e){
 			e.preventDefault();
 			var link = $(this).attr('href');
 			console.log(link);
@@ -110,6 +110,7 @@ $(document).ready(function() {
 			}});
 		});
 
+		//href="event_edit.php?id=<?=$row['id']; ?>"
 
 });
 
