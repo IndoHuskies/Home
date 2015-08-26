@@ -1,100 +1,124 @@
 <?php
-  require_once "../models/config.php";
+  require_once("../models/config.php");
+  require_once('../database.php');
+  require_once('common.php');
 
   if(!isUserLoggedIn()) {
     header("Location: index.php");
   }
+
+  adminHeader("Dashboard");
+  navbar();
 ?>
-<html lang="en"><head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="This is the dasboard for editing ISAUW website">
-    <meta name="author" content="Nabil Sutjipto">
-    <link rel="icon" href="../../favicon.ico">
 
-    <title>Dashboard</title>
-
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-
-    <!-- Datatables CSS -->
-    <link rel="stylesheet" href="//cdn.datatables.net/1.10.4/css/jquery.dataTables.min.css">
-
-    <link rel="stylesheet" href="//jqueryte.com/css/jquery-te.css">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-    <script src="http://jqueryte.com/js/jquery-te-1.4.0.min.js"></script>
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-
-    <!-- Datatables JS -->
-    <script src="//cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
-
-    <script src="http://malsup.github.com/jquery.form.js"></script>
-
-    <!-- Custom styles for this template -->
-    <link href="dashboard.css" rel="stylesheet">
-
-  <style id="holderjs-style" type="text/css"></style><style type="text/css"></style></head>
 
   <body>
 
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#"><img src="../img/logoisauw.png" style="width: 2%;"></a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <!-- <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Settings</a></li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Help</a></li>
-          </ul>
-          <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search...">
-          </form> -->
-        </div>
-      </div>
-    </div>
-
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-          <ul class="nav nav-sidebar">
-            <li class="active" id="overview"><a href="#">Overview</a></li>
-            <li id="homepage"><a href="#">Homepage</a></li>
-            <li id="event"><a href="#">Events</a></li>
-            <li id="volunteer"><a href="#">Keraton 2015 Volunteer</a></li>
-          </ul>
-          <ul class="nav nav-sidebar">
-            <li id="blog"><a href="#">ISAUW Card</a></li>
-          </ul>
-          <ul class="nav nav-sidebar">
-            <li id="officer"><a href="#">Officers</a></li>
-            <li id="community"><a href="#">Community</a></li>
-          </ul>
-        </div>
+
+        <?php sideNavbar(); ?>
+
         <div id="main_content" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
           <!-- content -->
+          <?php
+
+          $sql = "SELECT o.department_id, o.primary_id, o.name, o.standing, o.major, o.graduation, o.head, o.media, p.primary_name, d.department_name, d.email
+                    FROM officer o
+                    INNER JOIN primary_pos p ON p.id = o.primary_id
+                    LEFT JOIN department d ON d.id = o.department_id
+                    GROUP BY name
+                    ORDER BY RAND() LIMIT 1";
+
+          $stmt = $conn->prepare($sql);
+          $stmt->execute();
+          $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+          ?>
+
+          <div class="container" style="width:100%;">
+            <div class="row" style="margin-left: 1em;">
+              <div class="row">
+                <div class="col-md-3">
+                  <h3>ISAUW Officer</h3>
+                  <?php
+                  foreach ($result as $row) {
+                  ?>
+                  <div class="officer text-center">
+                    <div class="off-item">
+                      <div class="off-info">
+                        <div class="off-info-front">
+                          <img src="../<?= $row['media'] ?>" class="img-circle img-thumbnail img-responsive">
+                        </div>
+                        <div class="off-info-back">
+                          <p><?= $row['standing'] ?><br><?= $row['major'] ?><br><?= $row['graduation'] ?></p>
+                        </div>
+                      </div>
+                    </div>
+                  <span class="off-name"><strong><?= $row['name'] ?></strong></span><br><span class="off-title"><?= $row['department_name'] ?></span>
+                  </div>
+                  <?php } ?>
+                </div>
+                <div class="col-md-6">
+                  <h3>Instructions</h3>
+                  <p>Please select the section you want to edit from the side bar. You can add or edit the information that is already been inserted. Special cases:
+                    <ul>
+                      <li>You can upload photos in special cases.</li>
+                      <li>A window will open for you to crop the photo to <em>square</em></li>
+                      <li><strong>NOTE:</strong> If image file is too large, you will have to <em>refresh</em> the page</li>
+                    </ul>
+                </div>
+              </div>
+              <?php
+                $sql = "SELECT *
+                FROM event";
+
+                $stmt = $conn->prepare($sql);
+                $stmt->execute();
+                $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+              ?>
+              <div class="row">
+                <h2 class="sub-header">Latest Events</h2>
+                <div class="table-responsive">
+                  <table id="event-table" class="display" cellspacing="0" width="100%">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Event Name</th>
+                        <th>Location</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>edit</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <?php
+                        $i = 0;
+                        foreach($result as $row) {
+                          $i++;
+                          ?>
+                          <tr>
+                            <td><?= $i; ?></td>
+                            <td><?= $row['name']; ?></td>
+                            <td><?= $row['location']; ?></td>
+                            <td><?= $row['date']; ?></td>
+                            <td><?= $row['time']; ?></td>
+                            <td><a href="event_edit.php?id=<?=$row['id']; ?>" class="btn btn-default event-edit">Edit</a></td>
+                          </tr>
+                          <?php
+                        }
+                      ?>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+
+
+
+
+
       </div>
     </div>
 
@@ -103,50 +127,18 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script type="text/javascript">
       $( document ).ready(function() {
-        // For onload splash page
-        $.ajax({url:"overview.php",success:function(result){
-            $("#main_content").html(result);
-          }});
+        $('#event-table').DataTable();
 
-        $("#overview").click(function(){
-          $("ul.nav-sidebar li").removeClass("active");
-          $("#overview").addClass("active");
-          $.ajax({url:"overview.php",success:function(result){
-            $("#main_content").html(result);
-          }});
-        });
-
-        $("#event").click(function(){
-          $("ul.nav-sidebar li").removeClass("active");
-          $("#event").addClass("active");
-          $.ajax({url:"events.php",success:function(result){
-            $("#main_content").html(result);
-          }});
-        });
-
-        $("#volunteer").click(function(){
-          $("ul.nav-sidebar li").removeClass("active");
-          $("#volunteer").addClass("active");
-          $.ajax({url:"volunteer.php",success:function(result){
-            $("#main_content").html(result);
-          }});
-        });
-
-        $("#community").click(function(){
-          $("ul.nav-sidebar li").removeClass("active");
-          $("#community").addClass("active");
-          $.ajax({url:"community.php",success:function(result){
-            $("#main_content").html(result);
-          }});
-        });
-
-        $("#officer").click(function(){
-          $("ul.nav-sidebar li").removeClass("active");
-          $("#officer").addClass("active");
-          $.ajax({url:"officer.php",success:function(result){
-            $("#main_content").html(result);
-          }});
-        });
+        // $("#event-table").on("click", '.event-edit' , function(e){
+        //   e.preventDefault();
+        //   var link = $(this).attr('href');
+        //   console.log(link);
+        //   //alert(link);
+        //   $.ajax({url:link,success:function(result){
+        //     //alert(result);
+        //     $("#main_content").html(result);
+        //   }});
+        // });
       });
     </script>
 </body>

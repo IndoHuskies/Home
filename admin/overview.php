@@ -99,16 +99,16 @@ $(document).ready(function() {
 		$('#event-table').DataTable();
 
 
-		$("#event-table").on("click", '.event-edit' , function(e){
-			e.preventDefault();
-			var link = $(this).attr('href');
-			console.log(link);
-			//alert(link);
-			$.ajax({url:link,success:function(result){
-				//alert(result);
-				$("#main_content").html(result);
-			}});
-		});
+		// $("#event-table").on("click", '.event-edit' , function(e){
+		// 	e.preventDefault();
+		// 	var link = $(this).attr('href');
+		// 	console.log(link);
+		// 	//alert(link);
+		// 	$.ajax({url:link,success:function(result){
+		// 		//alert(result);
+		// 		$("#main_content").html(result);
+		// 	}});
+		// });
 
 		//href="event_edit.php?id=<?=$row['id']; ?>"
 

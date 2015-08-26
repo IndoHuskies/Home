@@ -66,6 +66,27 @@ body {
   background-color: #428bca;
 }
 
+/*
+ * Navbar 
+ */
+ 
+.navbar > div {
+  position: absolute;
+}
+
+#menu-icon {
+  color: white;
+  font-size: 2em;
+  left: 1em;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#isauw-brand {
+  right: 1em;
+  top: 50%;
+  transform: translateY(-50%);
+}
 
 /*
  * Main content
@@ -112,4 +133,21 @@ body {
     color: black;
     z-index:100;
     padding:20px;
+}
+
+
+/*
+ * Event data table 
+ */
+
+#event-table_wrapper {
+  width: 120%;
+}
+
+/*
+ *  Event Table Responsive
+ */
+
+.table-responsive {
+  margin-right: 1em;
 }
