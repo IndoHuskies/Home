@@ -67,8 +67,8 @@ function sideNavbar() {
             <li id="blog"><a href="#">ISAUW Card</a></li>
         </ul>
         <ul class="nav nav-sidebar">
-            <li id="officer"><a href="#">Officers</a></li>
-            <li id="community"><a href="#">Community</a></li>
+            <li id="officer"><a href="officer.php">Officers</a></li>
+            <li id="community"><a href="community.php">Community</a></li>
         </ul>
     </div>
 <?php

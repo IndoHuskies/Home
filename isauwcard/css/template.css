@@ -10,6 +10,14 @@ body{
 	color: #d9534f;
 }
 
+#myCarousel {
+	margin-top: 3.5em;
+}
+
+#myCarousel img {
+	width: 100%;
+}
+
 .fullscreen{
 	width: 100% !important;
 	height: 100% !important;
@@ -95,6 +103,11 @@ section{
     height: auto;
     opacity: 1;
     border: 1px solid #eeeeee;
+}
+
+.photos img {
+	width: 250px;
+	height: 250px;
 }
 
 /*

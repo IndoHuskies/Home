@@ -1,8 +1,8 @@
 <?php
 	$servername = "localhost";
-	$db_name = "isauw_website";
-	$username = "isauw_main";
-	$password = "isauw2014";
+	$db_name = "???";
+	$username = "??";
+	$password = "?";
 
 	// Create connection
 	try {
@@ -35,6 +35,8 @@ function TopHeader($title, $path) {
         <link rel="stylesheet" type="text/css" href="<?= $path ?>css/style.css">
         <!-- Survival Guide -->
         <link rel="stylesheet" type="text/css" href="<?= $path ?>css/sv-guide.css">
+        <!-- Photo Gallery -->
+        <link rel="stylesheet" type="text/css" href="<?= $path ?>css/photo_gallery.css">
 
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
 
@@ -121,9 +123,18 @@ function footer($conn) {
 		  		</div>
     		    <ul>
                     <?php
-                        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
-                            <li><a href="<?= $row['link']; ?>"><?= $row['name']; ?></a></li>
-                    <?php } ?>
+                        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { 
+                            if(empty($row['link'])) {
+                                ?>
+                                <li><a href="<?= $row['redirect']; ?>"><?= $row['name']; ?></a></li>
+                                <?php
+                            } else {
+                                ?>
+                                <li><a href="<?= $row['link']; ?>"><?= $row['name']; ?></a></li>
+                                <?php
+                            }
+                         } 
+                    ?>
     			</ul>
     		</div>
     		<div id="sponsor-support-footer" class="col-md-5">

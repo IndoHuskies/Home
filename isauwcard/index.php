@@ -98,7 +98,7 @@
       </ol>
       <div class="carousel-inner ">
         <div class="item active">
-          <img src="img/banner1-1.jpg" alt="First slide">
+          <img src="img/isauwcard2015.png" alt="First slide">
           <div class="container">
             <div class="carousel-caption">
               <!--
@@ -144,20 +144,20 @@
           <header>
             <h1>ISAUW CARD</h1>
             <hr>
-            <h5>Good Food, Simple Food</h5>
+            <h5>For Your Every Need.</h5>
           </header>
           <div class="col-md-4 col-md-offset-2">
-            <img src="img/insta1.jpg" class="img-rounded img-responsive">
+            <img src="img/isauwcardhome.JPG" class="img-rounded img-responsive">
             <br>
             <br>
           </div>
           <div class="col-md-4 ">
             <h4>What Is It?</h4>
             <p>
-              ISAUW Card is a student discount card that offers exclusive promotions to itscardholders. Available for only $5, you can benefit perks from restaurants in all over Seattle.
+              ISAUW Card is a student discount card that offers exclusive promotions to its cardholders. Available for only $5, you can benefit perks from not just restaurants, but also fitness, leisure, and copy-printing services all over Seattle.
             </p>
             <p>
-              The ISAUW Card is now more innovative than ever: to see the list of restaurants, just snap the QR code on the back on the card and access it through your mobile phone! The list of restaurants and perks will be growing even more throughout the year.
+            The ISAUW Card is now more innovative than ever: simply snap the QR code on the back of the card to access the list of vendors through your mobile phone. With these perks that will multiply throughout the year, it’s a perfect addition to your Seattle experience!
             </p>
           </div>
         </div>
@@ -170,8 +170,8 @@
                 <br>
                 <br>
                 <address>
-                  <strong>Aria Tarudji</strong><br>
-                  <abbr title="Phone">P:</abbr> (206) 432-6283<br>
+                  <strong>Peter Tandio</strong><br>
+                  <abbr title="Phone">P:</abbr> (206) 422-3599<br>
                   <a href="mailto:#"></a>
                 </address>
               </div>
@@ -183,19 +183,18 @@
       <section id="restaurant" class="page">
         <div class="row">
           <header>
-            <h1>RESTAURANT LIST</h1>
+            <h1>VENDORS LIST</h1>
             <hr>
-            <h5>Indulge in Flavors</h5>
           </header>
           <div class="row">
             <div class="col-md-6 location" id="udistrict-toggle"><img src="img/udistrict.jpg"><h2>U District</h2></div>
             <div class="col-md-6 location" id="chinatown-toggle"><img src="img/chinatown.jpg"><h2>Chinatown</h2></div>
             <div class="col-md-6 location" id="bellevue-toggle"><img src="img/bellevue.jpg"><h2>Bellevue</h2></div>
-            <div class="col-md-6 location" id="edmonds-toggle"><img src="img/downtown.jpg"><h2>Edmonds</h2></div>
-            <div class="col-md-6 location" id="greenlake-toggle"><img src="img/downtown.jpg"><h2>Greenlake</h2></div>
-            <div class="col-md-6 location" id="lcity-toggle"><img src="img/downtown.jpg"><h2>Lake City</h2></div>
-            <div class="col-md-6 location" id="northgate-toggle"><img src="img/northgate.jpg"><h2>Northgate</h2></div>
-            <div class="col-md-6 location" id="shoreline-toggle"><img src="img/downtown.jpg"><h2>Shoreline</h2></div>
+            <div class="col-md-6 location" id="edmonds-toggle"><img src="img/edmonds.jpg"><h2>Edmonds</h2></div>
+            <div class="col-md-6 location" id="redmond-toggle"><img src="img/redmond.jpg"><h2>Redmond</h2></div>
+            <div class="col-md-6 location" id="lcity-toggle"><img src="img/lake city.jpg"><h2>Lake City</h2></div>
+            <div class="col-md-6 location" id="wallingford-toggle"><img src="img/wallingford.jpg"><h2>Wallingford</h2></div>
+            <div class="col-md-6 location" id="shoreline-toggle"><img src="img/shoreline.jpg"><h2>Shoreline</h2></div>
             <!--<div class="col-md-6 location"><img src="http://placehold.it/550x250"></div>-->
           </div>
           <div class="row restaurant" id="udistrict">
@@ -225,10 +224,11 @@
                           $query_menu = "SELECT *
                                           FROM top_menu t
                                           INNER JOIN restaurant r ON t.restaurant_id = r.id
-                                          WHERE restaurant_id = ".$row["id"];
+                                          WHERE restaurant_id = ".$row["restaurant_id"];
 
                           if ($menu = mysqli_query($conn, $query_menu)) { 
                             $row_2 = mysqli_fetch_assoc($menu);
+                            if($row_2["menu_1"] != "") {
                             ?>
                             <p class="text-left">Top 5 Menu:</p>
                             <ul class="text-left">
@@ -258,7 +258,8 @@
                               <li><?= $row_2["menu_5"] ?></li>
                               <?php } ?>
                             </ul>
-                          <?php } ?>
+                          <?php }
+                          } ?>
                           <br>
                           <small>
                             <address class="text-left">
@@ -312,10 +313,11 @@
                           $query_menu = "SELECT *
                                           FROM top_menu t
                                           INNER JOIN restaurant r ON t.restaurant_id = r.id
-                                          WHERE restaurant_id = ".$row["id"];
+                                          WHERE restaurant_id = ".$row["restaurant_id"];
 
                           if ($menu = mysqli_query($conn, $query_menu)) { 
                             $row_2 = mysqli_fetch_assoc($menu);
+                            if($row_2["menu_1"] != "") {
                             ?>
                             <p class="text-left">Top 5 Menu:</p>
                             <ul class="text-left">
@@ -345,7 +347,8 @@
                               <li><?= $row_2["menu_5"] ?></li>
                               <?php } ?>
                             </ul>
-                          <?php } ?>
+                          <?php }
+                          } ?>
                           <br>
                           <small>
                             <address class="text-left">
@@ -399,10 +402,11 @@
                           $query_menu = "SELECT *
                                           FROM top_menu t
                                           INNER JOIN restaurant r ON t.restaurant_id = r.id
-                                          WHERE restaurant_id = ".$row["id"];
+                                          WHERE restaurant_id = ".$row["restaurant_id"];
 
                           if ($menu = mysqli_query($conn, $query_menu)) { 
                             $row_2 = mysqli_fetch_assoc($menu);
+                            if($row_2["menu_1"] != "") {
                             ?>
                             <p class="text-left">Top 5 Menu:</p>
                             <ul class="text-left">
@@ -432,7 +436,8 @@
                               <li><?= $row_2["menu_5"] ?></li>
                               <?php } ?>
                             </ul>
-                          <?php } ?>
+                          <?php }
+                          } ?>
                           <br>
                           <small>
                             <address class="text-left">
@@ -486,10 +491,11 @@
                           $query_menu = "SELECT *
                                           FROM top_menu t
                                           INNER JOIN restaurant r ON t.restaurant_id = r.id
-                                          WHERE restaurant_id = ".$row["id"];
+                                          WHERE restaurant_id = ".$row["restaurant_id"];
 
                           if ($menu = mysqli_query($conn, $query_menu)) { 
                             $row_2 = mysqli_fetch_assoc($menu);
+                            if($row_2["menu_1"] != "") {
                             ?>
                             <p class="text-left">Top 5 Menu:</p>
                             <ul class="text-left">
@@ -519,7 +525,8 @@
                               <li><?= $row_2["menu_5"] ?></li>
                               <?php } ?>
                             </ul>
-                          <?php } ?>
+                          <?php }
+                          } ?>
                           <br>
                           <small>
                             <address class="text-left">
@@ -546,14 +553,14 @@
               ?>
             </div> 
           </div>
-          <div class="row restaurant" id="greenlake">
-            <h3 id="greenlake-close">Greenlake<small>(click to close)</small></h3>
+          <div class="row restaurant" id="redmond">
+            <h3 id="redmond-close">Redmond<small>(click to close)</small></h3>
             <div class="row">
               <?php
                 $query = "SELECT * 
                           FROM restaurant r
                           INNER JOIN address a ON r.id = a.restaurant_id
-                          WHERE location =  'Greenlake'
+                          WHERE location =  'Redmond'
                           ORDER BY name";
 
                 if ($result = mysqli_query($conn, $query)) { 
@@ -573,11 +580,12 @@
                           $query_menu = "SELECT *
                                           FROM top_menu t
                                           INNER JOIN restaurant r ON t.restaurant_id = r.id
-                                          WHERE restaurant_id = ".$row["id"];
+                                          WHERE restaurant_id = ".$row["restaurant_id"];
 
                           if ($menu = mysqli_query($conn, $query_menu)) { 
                             $row_2 = mysqli_fetch_assoc($menu);
-                            ?>
+                            if($row_2["menu_1"] != "") {
+                           ?>
                             <p class="text-left">Top 5 Menu:</p>
                             <ul class="text-left">
                               <?php
@@ -606,7 +614,8 @@
                               <li><?= $row_2["menu_5"] ?></li>
                               <?php } ?>
                             </ul>
-                          <?php } ?>
+                          <?php }
+                          } ?>
                           <br>
                           <small>
                             <address class="text-left">
@@ -660,10 +669,11 @@
                           $query_menu = "SELECT *
                                           FROM top_menu t
                                           INNER JOIN restaurant r ON t.restaurant_id = r.id
-                                          WHERE restaurant_id = ".$row["id"];
+                                          WHERE restaurant_id = ".$row["restaurant_id"];
 
                           if ($menu = mysqli_query($conn, $query_menu)) { 
                             $row_2 = mysqli_fetch_assoc($menu);
+                            if($row_2["menu_1"] != "") {
                             ?>
                             <p class="text-left">Top 5 Menu:</p>
                             <ul class="text-left">
@@ -693,7 +703,8 @@
                               <li><?= $row_2["menu_5"] ?></li>
                               <?php } ?>
                             </ul>
-                          <?php } ?>
+                          <?php }
+                          } ?>
                           <br>
                           <small>
                             <address class="text-left">
@@ -720,14 +731,14 @@
               ?>
             </div> 
           </div>
-          <div class="row restaurant" id="northgate">
-            <h3 id="northgate-close">Northgate<small>(click to close)</small></h3>
+          <div class="row restaurant" id="wallingford">
+            <h3 id="wallingford-close">Wallingford<small>(click to close)</small></h3>
             <div class="row">
               <?php
                 $query = "SELECT * 
                           FROM restaurant r
                           INNER JOIN address a ON r.id = a.restaurant_id
-                          WHERE location =  'Northgate'
+                          WHERE location =  'Wallingford'
                           ORDER BY name";
 
                 if ($result = mysqli_query($conn, $query)) { 
@@ -747,11 +758,12 @@
                           $query_menu = "SELECT *
                                           FROM top_menu t
                                           INNER JOIN restaurant r ON t.restaurant_id = r.id
-                                          WHERE restaurant_id = ".$row["id"];
+                                          WHERE restaurant_id = ".$row["restaurant_id"];
 
                           if ($menu = mysqli_query($conn, $query_menu)) { 
                             $row_2 = mysqli_fetch_assoc($menu);
-                            ?>
+                            if($row_2["menu_1"] != "") {
+                           ?>
                             <p class="text-left">Top 5 Menu:</p>
                             <ul class="text-left">
                               <?php
@@ -780,7 +792,8 @@
                               <li><?= $row_2["menu_5"] ?></li>
                               <?php } ?>
                             </ul>
-                          <?php } ?>
+                          <?php }
+                          } ?>
                           <br>
                           <small>
                             <address class="text-left">
@@ -834,10 +847,11 @@
                           $query_menu = "SELECT *
                                           FROM top_menu t
                                           INNER JOIN restaurant r ON t.restaurant_id = r.id
-                                          WHERE restaurant_id = ".$row["id"];
+                                          WHERE restaurant_id = ".$row["restaurant_id"];
 
                           if ($menu = mysqli_query($conn, $query_menu)) { 
                             $row_2 = mysqli_fetch_assoc($menu);
+                            if($row_2["menu_1"] != "") {
                             ?>
                             <p class="text-left">Top 5 Menu:</p>
                             <ul class="text-left">
@@ -867,7 +881,8 @@
                               <li><?= $row_2["menu_5"] ?></li>
                               <?php } ?>
                             </ul>
-                          <?php } ?>
+                          <?php }
+                          } ?>
                           <br>
                           <small>
                             <address class="text-left">
@@ -1017,10 +1032,10 @@
               scrollTop: $( "#edmonds" ).offset().top -100
           }, 600);
       });
-      $("#greenlake-toggle").click(function(){
-          $("#greenlake").toggle("slow");
+      $("#redmond-toggle").click(function(){
+          $("#redmond").toggle("slow");
           $("body, html").animate({ 
-              scrollTop: $( "#greenlake" ).offset().top -100
+              scrollTop: $( "#redmond" ).offset().top -100
           }, 600);
       });
       $("#lcity-toggle").click(function(){
@@ -1029,10 +1044,10 @@
               scrollTop: $( "#lcity" ).offset().top -100
           }, 600);
       });
-      $("#northgate-toggle").click(function(){
-          $("#northgate").toggle("slow");
+      $("#wallingford-toggle").click(function(){
+          $("#wallingford").toggle("slow");
           $("body, html").animate({ 
-              scrollTop: $( "#northgate" ).offset().top -100
+              scrollTop: $( "#wallingford" ).offset().top -100
           }, 600);
       });
       $("#shoreline-toggle").click(function(){
@@ -1067,10 +1082,10 @@
               scrollTop: $( "#edmonds-toggle" ).offset().top -100
           }, 600);
       });
-      $("#greenlake-close").click(function(){
-          $("#greenlake").toggle("slow");
+      $("#redmond-close").click(function(){
+          $("#redmond").toggle("slow");
           $("body, html").animate({ 
-              scrollTop: $( "#greenlake-toggle" ).offset().top -100
+              scrollTop: $( "#redmond-toggle" ).offset().top -100
           }, 600);
       });
       $("#lcity-close").click(function(){
@@ -1079,10 +1094,10 @@
               scrollTop: $( "#lcity-toggle" ).offset().top -100
           }, 600);
       });
-      $("#northgate-close").click(function(){
-          $("#northgate").toggle("slow");
+      $("#wallingford-close").click(function(){
+          $("#wallingford").toggle("slow");
           $("body, html").animate({ 
-              scrollTop: $( "#northgate-toggle" ).offset().top -100
+              scrollTop: $( "#wallingford-toggle" ).offset().top -100
           }, 600);
       });
       $("#shoreline-close").click(function(){

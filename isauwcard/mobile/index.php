@@ -61,11 +61,11 @@ if ($_POST["element_3"]<>'') {
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            li><a href="../index.php">HOME</a></li>
-            <li><a href="../officers.php">OFFICERS</a></li>
+            <li><a href="../../index.php">HOME</a></li>
+            <li><a href="../../officers.php">OFFICERS</a></li>
             <li class="active"><a href="#contact">ISAUW CARD</a></li>
-            <li><a href="../event.php">EVENT</a></li>
-            <li><a href="../community.php">COMMUNITY</a></li>
+            <li><a href="../../event.php">EVENT</a></li>
+            <li><a href="../../community.php">COMMUNITY</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -83,7 +83,7 @@ if ($_POST["element_3"]<>'') {
       </ol>
       <div class="carousel-inner ">
         <div class="item active">
-          <img src="../img/banner1-1.jpg" alt="First slide">
+          <img src="../img/isauwcard2015.png" alt="First slide">
           <div class="container">
             <div class="carousel-caption">
               <!--
@@ -129,15 +129,18 @@ if ($_POST["element_3"]<>'') {
           <header>
             <h1>ISAUW CARD</h1>
             <hr>
-            <h5>Good Food, Simple Food</h5>
+            <h5>For Your Every Need.</h5>
           </header>
+          <div class="row" id="promo-pic">
+            <img src="../img/isauwcardhome.JPG" class="img-rounded img-responsive">
+          </div>
           <div class="col-md-4 ">
             <h4>What Is It?</h4>
             <p>
-              ISAUW Card is a student discount card that offers exclusive promotions to itscardholders. Available for only $5, you can benefit perks from restaurants in all over Seattle.
+              ISAUW Card is a student discount card that offers exclusive promotions to its cardholders. Available for only $5, you can benefit perks from not just restaurants, but also fitness, leisure, and copy-printing services all over Seattle.
             </p>
             <p>
-              The ISAUW Card is now more innovative than ever: to see the list of restaurants, just snap the QR code on the back on the card and access it through your mobile phone! The list of restaurants and perks will be growing even more throughout the year.
+            The ISAUW Card is now more innovative than ever: simply snap the QR code on the back of the card to access the list of vendors through your mobile phone. With these perks that will multiply throughout the year, it’s a perfect addition to your Seattle experience!
             </p>
           </div>
         </div>
@@ -148,8 +151,8 @@ if ($_POST["element_3"]<>'') {
           </div>
               <div class="col-md-4">
                 <address>
-                  <strong>Aria Tarudji</strong><br>
-                  <abbr title="Phone">P:</abbr> (206) 432-6283<br>
+                  <strong>Peter Tandio</strong><br>
+                  <abbr title="Phone">P:</abbr> (206) 422-3599<br>
                   <a href="mailto:#"></a>
                 </address>
               </div>
@@ -161,9 +164,8 @@ if ($_POST["element_3"]<>'') {
       <section id="restaurant" class="page">
         <div class="row">
           <header>
-            <h1>RESTAURANT LIST</h1>
+            <h1>VENDORS LIST</h1>
             <hr>
-            <h5>Indulge in Flavors</h5>
           </header>
           <h3 id="udistrict-toggle">University District</h3>
           <div class="row restaurant" id="udistrict">
@@ -208,6 +210,7 @@ if ($_POST["element_3"]<>'') {
 
                           if ($menu = mysqli_query($conn, $query_menu)) { 
                             $row_2 = mysqli_fetch_assoc($menu);
+                            if($row_2["menu_1"] != "") {
                             ?>
                             <p class="text-left">Top 5 Menu:</p>
                             <ul class="text-left">
@@ -237,7 +240,8 @@ if ($_POST["element_3"]<>'') {
                               <li><?= $row_2["menu_5"] ?></li>
                               <?php } ?>
                             </ul>
-                          <?php } ?>
+                          <?php }
+                          } ?>
                           <br>
                 </div>
               </div>
@@ -291,6 +295,7 @@ if ($_POST["element_3"]<>'') {
 
                           if ($menu = mysqli_query($conn, $query_menu)) { 
                             $row_2 = mysqli_fetch_assoc($menu);
+                            if($row_2["menu_1"] != "") {
                             ?>
                             <p class="text-left">Top 5 Menu:</p>
                             <ul class="text-left">
@@ -320,7 +325,8 @@ if ($_POST["element_3"]<>'') {
                               <li><?= $row_2["menu_5"] ?></li>
                               <?php } ?>
                             </ul>
-                          <?php } ?>
+                          <?php }
+                          } ?>
                           <br>
                 </div>
               </div>
@@ -374,6 +380,7 @@ if ($_POST["element_3"]<>'') {
 
                           if ($menu = mysqli_query($conn, $query_menu)) { 
                             $row_2 = mysqli_fetch_assoc($menu);
+                            if($row_2["menu_1"] != "") {
                             ?>
                             <p class="text-left">Top 5 Menu:</p>
                             <ul class="text-left">
@@ -403,7 +410,8 @@ if ($_POST["element_3"]<>'') {
                               <li><?= $row_2["menu_5"] ?></li>
                               <?php } ?>
                             </ul>
-                          <?php } ?>
+                          <?php }
+                          } ?>
                           <br>
                 </div>
               </div>
@@ -457,6 +465,7 @@ if ($_POST["element_3"]<>'') {
 
                           if ($menu = mysqli_query($conn, $query_menu)) { 
                             $row_2 = mysqli_fetch_assoc($menu);
+                            if($row_2["menu_1"] != "") {
                             ?>
                             <p class="text-left">Top 5 Menu:</p>
                             <ul class="text-left">
@@ -486,7 +495,8 @@ if ($_POST["element_3"]<>'') {
                               <li><?= $row_2["menu_5"] ?></li>
                               <?php } ?>
                             </ul>
-                          <?php } ?>
+                          <?php }
+                          } ?>
                           <br>
                 </div>
               </div>
@@ -497,13 +507,13 @@ if ($_POST["element_3"]<>'') {
  
               ?>
           </div>
-          <h3 id="greenlake-toggle">Greenlake</h3>
+          <h3 id="greenlake-toggle">Redmond</h3>
           <div class="row restaurant" id="greenlake">
             <?php
                 $query = "SELECT * 
                           FROM restaurant r
                           INNER JOIN address a ON r.id = a.restaurant_id
-                          WHERE location =  'Greenlake'
+                          WHERE location =  'Redmond'
                           ORDER BY name ASC";
 
                 if ($result = mysqli_query($conn, $query)) { 
@@ -540,6 +550,7 @@ if ($_POST["element_3"]<>'') {
 
                           if ($menu = mysqli_query($conn, $query_menu)) { 
                             $row_2 = mysqli_fetch_assoc($menu);
+                            if($row_2["menu_1"] != "") {
                             ?>
                             <p class="text-left">Top 5 Menu:</p>
                             <ul class="text-left">
@@ -569,7 +580,8 @@ if ($_POST["element_3"]<>'') {
                               <li><?= $row_2["menu_5"] ?></li>
                               <?php } ?>
                             </ul>
-                          <?php } ?>
+                          <?php }
+                          } ?>
                           <br>
                 </div>
               </div>
@@ -623,6 +635,7 @@ if ($_POST["element_3"]<>'') {
 
                           if ($menu = mysqli_query($conn, $query_menu)) { 
                             $row_2 = mysqli_fetch_assoc($menu);
+                            if($row_2["menu_1"] != "") {
                             ?>
                             <p class="text-left">Top 5 Menu:</p>
                             <ul class="text-left">
@@ -652,7 +665,8 @@ if ($_POST["element_3"]<>'') {
                               <li><?= $row_2["menu_5"] ?></li>
                               <?php } ?>
                             </ul>
-                          <?php } ?>
+                          <?php }
+                          } ?>
                           <br>
                 </div>
               </div>
@@ -663,13 +677,13 @@ if ($_POST["element_3"]<>'') {
  
               ?>
           </div>
-          <h3 id="northgate-toggle">Northgate</h3>
+          <h3 id="northgate-toggle">Wallingford</h3>
           <div class="row restaurant" id="northgate">
             <?php
                 $query = "SELECT * 
                           FROM restaurant r
                           INNER JOIN address a ON r.id = a.restaurant_id
-                          WHERE location =  'Northgate'
+                          WHERE location =  'Wallingford'
                           ORDER BY name ASC";
 
                 if ($result = mysqli_query($conn, $query)) { 
@@ -706,6 +720,7 @@ if ($_POST["element_3"]<>'') {
 
                           if ($menu = mysqli_query($conn, $query_menu)) { 
                             $row_2 = mysqli_fetch_assoc($menu);
+                            if($row_2["menu_1"] != "") {
                             ?>
                             <p class="text-left">Top 5 Menu:</p>
                             <ul class="text-left">
@@ -735,7 +750,8 @@ if ($_POST["element_3"]<>'') {
                               <li><?= $row_2["menu_5"] ?></li>
                               <?php } ?>
                             </ul>
-                          <?php } ?>
+                          <?php }
+                          } ?>
                           <br>
                 </div>
               </div>
@@ -789,6 +805,7 @@ if ($_POST["element_3"]<>'') {
 
                           if ($menu = mysqli_query($conn, $query_menu)) { 
                             $row_2 = mysqli_fetch_assoc($menu);
+                            if($row_2["menu_1"] != "") {
                             ?>
                             <p class="text-left">Top 5 Menu:</p>
                             <ul class="text-left">
@@ -818,7 +835,8 @@ if ($_POST["element_3"]<>'') {
                               <li><?= $row_2["menu_5"] ?></li>
                               <?php } ?>
                             </ul>
-                          <?php } ?>
+                          <?php }
+                          } ?>
                           <br>
                 </div>
               </div>

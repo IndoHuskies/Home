@@ -59,15 +59,19 @@
     		<div class="col-md-1"></div>
 
     	</div><!-- /.row -->
-
-    	<div id="event-sponsor" class="row">
-    		<div class="col-md-1"></div>
-    		<div class="col-md-10">
-    			<h2 class="row">Sponsor</h2>
-    		</div>
-    		<div class="col-md-1"></div>
-    	</div>
-
+        <?php 
+        if(!empty($result->sponsor)) {
+        ?>
+        	<div id="event-sponsor" class="row">
+        		<div class="col-md-1"></div>
+        		<div class="col-md-10">
+        			<h2 class="row">Sponsor</h2>
+        		</div>
+        		<div class="col-md-1"></div>
+        	</div>
+        <?php
+        }
+        ?>
     	<!-- Content End -->
 
 
