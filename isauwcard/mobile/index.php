@@ -148,14 +148,59 @@ if ($_POST["element_3"]<>'') {
           <div class="col-md-4 col-md-offset-2">
             <h4> Where To Get it?</h4>
             <P>Please fill the form at the bottom of this page or contact:</p>
+            <br>
+            <br>
+            <img src="../img/Promotion 2.jpg" class="img-rounded img-responsive">
           </div>
-              <div class="col-md-4">
-                <address>
-                  <strong>Peter Tandio</strong><br>
-                  <abbr title="Phone">P:</abbr> (206) 422-3599<br>
-                  <a href="mailto:#"></a>
-                </address>
-              </div>
+          <div class="col-md-4">
+            <br>
+            <br>
+            <address>
+              <strong>UW, Seattle - Peter Tandio</strong><br>
+              <abbr title="Phone">P:</abbr> (206) 422-3599<br>
+              <a href="mailto:#"></a>
+            </address>
+            <address>
+              <strong>UW, Bothell - Chaercha Angely</strong><br>
+              <abbr title="Phone">P:</abbr> (425) 835-1990<br>
+              <a href="mailto:#"></a>
+            </address>
+            <address>
+              <strong>Bellevue - Claudia Hartono</strong><br>
+              <abbr title="Phone">P:</abbr> (425) 633-0006<br>
+              <a href="mailto:#"></a>
+            </address>
+            <address>
+              <strong>North Seattle - Christopher Bernard</strong><br>
+              <abbr title="Phone">P:</abbr> (425) 623-8268<br>
+              <a href="mailto:#"></a>
+            </address>
+            <address>
+              <strong>AIS - Randy Hermawan</strong><br>
+              <abbr title="Phone">P:</abbr> (206) 788-6612<br>
+              <a href="mailto:#"></a>
+            </address>
+            <address>
+              <strong>Edmonds - Darren Abisha</strong><br>
+              <abbr title="Phone">P:</abbr> (425) 232-0159<br>
+              <a href="mailto:#"></a>
+            </address>
+            <address>
+              <strong>Seattle University - Winda Halim</strong><br>
+              <abbr title="Phone">P:</abbr> (206) 454-0906<br>
+              <a href="mailto:#"></a>
+            </address>
+            <address>
+              <strong>Shoreline - Ryan Kevin</strong><br>
+              <abbr title="Phone">P:</abbr> (425) 943-1779<br>
+              <a href="mailto:#"></a>
+            </address>
+            <address>
+              <strong>Seattle Central - Gilbert Febrianto</strong><br>
+              <abbr title="Phone">P:</abbr> (253) 213-7831<br>
+              <a href="mailto:#"></a>
+            </address>
+          </div>
         </div>
         <div class="row">
         </div>
@@ -259,6 +304,176 @@ if ($_POST["element_3"]<>'') {
                           FROM restaurant r
                           INNER JOIN address a ON r.id = a.restaurant_id
                           WHERE location =  'Chinatown'
+                          ORDER BY name ASC";
+
+                if ($result = mysqli_query($conn, $query)) { 
+                  while ($row = mysqli_fetch_assoc($result)) {
+            ?>
+            <div class="col-md-8">
+              <div id="popup">
+                <h4 class="text-center"><?= $row["name"] ?></h4>
+                <hr>
+                <div class="box">
+                  <p class="text-left"><?= $row["deal"] ?></p>
+                  <small>
+                    <address class="text-left">
+                      <?= $row["address"] ?><br>
+                      <?= $row["state"] ?>,  <?= $row["zipcode"] ?>
+                      <br><br>
+                      <abbr title="Phone">P:</abbr> <?= $row["phone"] ?>
+                    </address>
+                  </small>
+                  <?php
+                  if ($row["website"] != "") {
+                    ?>
+                    <a href="<?= $row["website"] ?>" target="_blank">
+                      <small class="text-left"> click for site..</small>
+                    </a>
+                    <?php } ?>
+                </div>
+                <div class="box">
+                  <?php
+                          $query_menu = "SELECT *
+                                          FROM top_menu t
+                                          INNER JOIN restaurant r ON t.restaurant_id = r.id
+                                          WHERE restaurant_id = ".$row["id"];
+
+                          if ($menu = mysqli_query($conn, $query_menu)) { 
+                            $row_2 = mysqli_fetch_assoc($menu);
+                            if($row_2["menu_1"] != "") {
+                            ?>
+                            <p class="text-left">Top 5 Menu:</p>
+                            <ul class="text-left">
+                              <?php
+                              if ($row_2["menu_1"] != "") {
+                              ?>
+                              <li><?= $row_2["menu_1"] ?></li>
+                              <?php } ?>
+                              <?php
+                              if ($row_2["menu_2"] != "") {
+                              ?>
+                              <li><?= $row_2["menu_2"] ?></li>
+                              <?php } ?>
+                              <?php
+                              if ($row_2["menu_3"] != "") {
+                              ?>
+                              <li><?= $row_2["menu_3"] ?></li>
+                              <?php } ?>
+                              <?php
+                              if ($row_2["menu_4"] != "") {
+                              ?>
+                              <li><?= $row_2["menu_4"] ?></li>
+                              <?php } ?>
+                              <?php
+                              if ($row_2["menu_5"] != "") {
+                              ?>
+                              <li><?= $row_2["menu_5"] ?></li>
+                              <?php } ?>
+                            </ul>
+                          <?php }
+                          } ?>
+                          <br>
+                </div>
+              </div>
+            </div>
+            <?php
+                  }
+                }
+ 
+              ?>
+          </div>
+          <h3 id="northgate-toggle">Northgate</h3>
+          <div class="row restaurant" id="northgate">
+            <?php
+                $query = "SELECT * 
+                          FROM restaurant r
+                          INNER JOIN address a ON r.id = a.restaurant_id
+                          WHERE location =  'Northgate'
+                          ORDER BY name ASC";
+
+                if ($result = mysqli_query($conn, $query)) { 
+                  while ($row = mysqli_fetch_assoc($result)) {
+            ?>
+            <div class="col-md-8">
+              <div id="popup">
+                <h4 class="text-center"><?= $row["name"] ?></h4>
+                <hr>
+                <div class="box">
+                  <p class="text-left"><?= $row["deal"] ?></p>
+                  <small>
+                    <address class="text-left">
+                      <?= $row["address"] ?><br>
+                      <?= $row["state"] ?>,  <?= $row["zipcode"] ?>
+                      <br><br>
+                      <abbr title="Phone">P:</abbr> <?= $row["phone"] ?>
+                    </address>
+                  </small>
+                  <?php
+                  if ($row["website"] != "") {
+                    ?>
+                    <a href="<?= $row["website"] ?>" target="_blank">
+                      <small class="text-left"> click for site..</small>
+                    </a>
+                    <?php } ?>
+                </div>
+                <div class="box">
+                  <?php
+                          $query_menu = "SELECT *
+                                          FROM top_menu t
+                                          INNER JOIN restaurant r ON t.restaurant_id = r.id
+                                          WHERE restaurant_id = ".$row["id"];
+
+                          if ($menu = mysqli_query($conn, $query_menu)) { 
+                            $row_2 = mysqli_fetch_assoc($menu);
+                            if($row_2["menu_1"] != "") {
+                            ?>
+                            <p class="text-left">Top 5 Menu:</p>
+                            <ul class="text-left">
+                              <?php
+                              if ($row_2["menu_1"] != "") {
+                              ?>
+                              <li><?= $row_2["menu_1"] ?></li>
+                              <?php } ?>
+                              <?php
+                              if ($row_2["menu_2"] != "") {
+                              ?>
+                              <li><?= $row_2["menu_2"] ?></li>
+                              <?php } ?>
+                              <?php
+                              if ($row_2["menu_3"] != "") {
+                              ?>
+                              <li><?= $row_2["menu_3"] ?></li>
+                              <?php } ?>
+                              <?php
+                              if ($row_2["menu_4"] != "") {
+                              ?>
+                              <li><?= $row_2["menu_4"] ?></li>
+                              <?php } ?>
+                              <?php
+                              if ($row_2["menu_5"] != "") {
+                              ?>
+                              <li><?= $row_2["menu_5"] ?></li>
+                              <?php } ?>
+                            </ul>
+                          <?php }
+                          } ?>
+                          <br>
+                </div>
+              </div>
+            </div>
+            <?php
+                  }
+                }
+ 
+              ?>
+          </div>
+          <h3 id="capitolhill-toggle">Capitol Hill</h3>
+          <div class="row restaurant" id="capitolhill">
+            <?php
+                $query = "SELECT * 
+                          FROM restaurant r
+                          INNER JOIN address a ON r.id = a.restaurant_id
+                          WHERE location =  'Capitol Hill'
                           ORDER BY name ASC";
 
                 if ($result = mysqli_query($conn, $query)) { 
@@ -677,8 +892,8 @@ if ($_POST["element_3"]<>'') {
  
               ?>
           </div>
-          <h3 id="northgate-toggle">Wallingford</h3>
-          <div class="row restaurant" id="northgate">
+          <h3 id="wallingford-toggle">Wallingford</h3>
+          <div class="row restaurant" id="wallingford">
             <?php
                 $query = "SELECT * 
                           FROM restaurant r
@@ -950,6 +1165,12 @@ if ($_POST["element_3"]<>'') {
       $("#chinatown-toggle").click(function(){
           $("#chinatown").toggle("slow");
       });
+      $("#northgate-toggle").click(function(){
+          $("#northgate").toggle("slow");
+      });
+      $("#capitolhill-toggle").click(function(){
+          $("#capitolhill").toggle("slow");
+      });
       $("#bellevue-toggle").click(function(){
           $("#bellevue").toggle("slow");
       });
@@ -962,8 +1183,8 @@ if ($_POST["element_3"]<>'') {
       $("#lcity-toggle").click(function(){
           $("#lcity").toggle("slow");
       });
-      $("#northgate-toggle").click(function(){
-          $("#northgate").toggle("slow");
+      $("#wallingford-toggle").click(function(){
+          $("#wallingford").toggle("slow");
       });
       $("#shoreline-toggle").click(function(){
           $("#shoreline").toggle("slow");

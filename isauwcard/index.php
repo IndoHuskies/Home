@@ -165,16 +165,59 @@
           <div class="col-md-4 col-md-offset-2">
             <h4> Where To Get it?</h4>
             <P>Please fill the form at the bottom of this page or contact:</p>
+            <br>
+            <br>
+            <img src="img/Promotion 2.jpg" class="img-rounded img-responsive">
           </div>
-              <div class="col-md-4">
-                <br>
-                <br>
-                <address>
-                  <strong>Peter Tandio</strong><br>
-                  <abbr title="Phone">P:</abbr> (206) 422-3599<br>
-                  <a href="mailto:#"></a>
-                </address>
-              </div>
+          <div class="col-md-4">
+            <br>
+            <br>
+            <address>
+              <strong>UW, Seattle - Peter Tandio</strong><br>
+              <abbr title="Phone">P:</abbr> (206) 422-3599<br>
+              <a href="mailto:#"></a>
+            </address>
+            <address>
+              <strong>UW, Bothell - Chaercha Angely</strong><br>
+              <abbr title="Phone">P:</abbr> (425) 835-1990<br>
+              <a href="mailto:#"></a>
+            </address>
+            <address>
+              <strong>Bellevue - Claudia Hartono</strong><br>
+              <abbr title="Phone">P:</abbr> (425) 633-0006<br>
+              <a href="mailto:#"></a>
+            </address>
+            <address>
+              <strong>North Seattle - Christopher Bernard</strong><br>
+              <abbr title="Phone">P:</abbr> (425) 623-8268<br>
+              <a href="mailto:#"></a>
+            </address>
+            <address>
+              <strong>AIS - Randy Hermawan</strong><br>
+              <abbr title="Phone">P:</abbr> (206) 788-6612<br>
+              <a href="mailto:#"></a>
+            </address>
+            <address>
+              <strong>Edmonds - Darren Abisha</strong><br>
+              <abbr title="Phone">P:</abbr> (425) 232-0159<br>
+              <a href="mailto:#"></a>
+            </address>
+            <address>
+              <strong>Seattle University - Winda Halim</strong><br>
+              <abbr title="Phone">P:</abbr> (206) 454-0906<br>
+              <a href="mailto:#"></a>
+            </address>
+            <address>
+              <strong>Shoreline - Ryan Kevin</strong><br>
+              <abbr title="Phone">P:</abbr> (425) 943-1779<br>
+              <a href="mailto:#"></a>
+            </address>
+            <address>
+              <strong>Seattle Central - Gilbert Febrianto</strong><br>
+              <abbr title="Phone">P:</abbr> (253) 213-7831<br>
+              <a href="mailto:#"></a>
+            </address>
+          </div>
         </div>
         <div class="row">
         </div>
@@ -189,6 +232,8 @@
           <div class="row">
             <div class="col-md-6 location" id="udistrict-toggle"><img src="img/udistrict.jpg"><h2>U District</h2></div>
             <div class="col-md-6 location" id="chinatown-toggle"><img src="img/chinatown.jpg"><h2>Chinatown</h2></div>
+            <div class="col-md-6 location" id="northgate-toggle"><img src="img/northgate.jpg"><h2>Northgate</h2></div>
+            <div class="col-md-6 location" id="capitolhill-toggle"><img src="img/capitolhill.jpg"><h2>Capitol Hill</h2></div>
             <div class="col-md-6 location" id="bellevue-toggle"><img src="img/bellevue.jpg"><h2>Bellevue</h2></div>
             <div class="col-md-6 location" id="edmonds-toggle"><img src="img/edmonds.jpg"><h2>Edmonds</h2></div>
             <div class="col-md-6 location" id="redmond-toggle"><img src="img/redmond.jpg"><h2>Redmond</h2></div>
@@ -294,6 +339,184 @@
                           FROM restaurant r
                           INNER JOIN address a ON r.id = a.restaurant_id
                           WHERE location =  'Chinatown'
+                          ORDER BY name";
+
+                if ($result = mysqli_query($conn, $query)) { 
+                  while ($row = mysqli_fetch_assoc($result)) {
+                    ?>
+                    <div class="col-md-3">
+                      <div class="photos">
+                        <span>
+                          <img src="<?= $row["photo"] ?>" class="img-circle img-thumbnail">
+                        </span><br>
+                        <span class="rest_name"><?= $row["name"] ?></span>
+                        <div id="popup">
+                          <h4 class="text-center"><?= $row["name"] ?></h4>
+                          <hr>
+                          <p class="text-left"><?= $row["deal"] ?></p>
+                          <?php
+                          $query_menu = "SELECT *
+                                          FROM top_menu t
+                                          INNER JOIN restaurant r ON t.restaurant_id = r.id
+                                          WHERE restaurant_id = ".$row["restaurant_id"];
+
+                          if ($menu = mysqli_query($conn, $query_menu)) { 
+                            $row_2 = mysqli_fetch_assoc($menu);
+                            if($row_2["menu_1"] != "") {
+                            ?>
+                            <p class="text-left">Top 5 Menu:</p>
+                            <ul class="text-left">
+                              <?php
+                              if ($row_2["menu_1"] != "") {
+                              ?>
+                              <li><?= $row_2["menu_1"] ?></li>
+                              <?php } ?>
+                              <?php
+                              if ($row_2["menu_2"] != "") {
+                              ?>
+                              <li><?= $row_2["menu_2"] ?></li>
+                              <?php } ?>
+                              <?php
+                              if ($row_2["menu_3"] != "") {
+                              ?>
+                              <li><?= $row_2["menu_3"] ?></li>
+                              <?php } ?>
+                              <?php
+                              if ($row_2["menu_4"] != "") {
+                              ?>
+                              <li><?= $row_2["menu_4"] ?></li>
+                              <?php } ?>
+                              <?php
+                              if ($row_2["menu_5"] != "") {
+                              ?>
+                              <li><?= $row_2["menu_5"] ?></li>
+                              <?php } ?>
+                            </ul>
+                          <?php }
+                          } ?>
+                          <br>
+                          <small>
+                            <address class="text-left">
+                              <?= $row["address"] ?><br>
+                              <?= $row["state"] ?>,  <?= $row["zipcode"] ?>
+                              <br><br>
+                              <abbr title="Phone">P:</abbr> <?= $row["phone"] ?>
+                            </address>
+                          </small>
+                          <?php
+                            if ($row["website"] != "") {
+                          ?>
+                            <a href="<?= $row["website"] ?>" target="_blank">
+                              <small class="text-left"> click for site..</small>
+                            </a>
+                          <?php } ?>
+                        </div>
+                      </div>
+                    </div>
+                    <?php
+                  }
+                }
+ 
+              ?>
+            </div> 
+          </div>
+          <div class="row restaurant" id="northgate">
+            <h3 id="northgate-close">Northgate<small>(click to close)</small></h3>
+            <div class="row">
+              <?php
+                $query = "SELECT * 
+                          FROM restaurant r
+                          INNER JOIN address a ON r.id = a.restaurant_id
+                          WHERE location =  'Northgate'
+                          ORDER BY name";
+
+                if ($result = mysqli_query($conn, $query)) { 
+                  while ($row = mysqli_fetch_assoc($result)) {
+                    ?>
+                    <div class="col-md-3">
+                      <div class="photos">
+                        <span>
+                          <img src="<?= $row["photo"] ?>" class="img-circle img-thumbnail">
+                        </span><br>
+                        <span class="rest_name"><?= $row["name"] ?></span>
+                        <div id="popup">
+                          <h4 class="text-center"><?= $row["name"] ?></h4>
+                          <hr>
+                          <p class="text-left"><?= $row["deal"] ?></p>
+                          <?php
+                          $query_menu = "SELECT *
+                                          FROM top_menu t
+                                          INNER JOIN restaurant r ON t.restaurant_id = r.id
+                                          WHERE restaurant_id = ".$row["restaurant_id"];
+
+                          if ($menu = mysqli_query($conn, $query_menu)) { 
+                            $row_2 = mysqli_fetch_assoc($menu);
+                            if($row_2["menu_1"] != "") {
+                            ?>
+                            <p class="text-left">Top 5 Menu:</p>
+                            <ul class="text-left">
+                              <?php
+                              if ($row_2["menu_1"] != "") {
+                              ?>
+                              <li><?= $row_2["menu_1"] ?></li>
+                              <?php } ?>
+                              <?php
+                              if ($row_2["menu_2"] != "") {
+                              ?>
+                              <li><?= $row_2["menu_2"] ?></li>
+                              <?php } ?>
+                              <?php
+                              if ($row_2["menu_3"] != "") {
+                              ?>
+                              <li><?= $row_2["menu_3"] ?></li>
+                              <?php } ?>
+                              <?php
+                              if ($row_2["menu_4"] != "") {
+                              ?>
+                              <li><?= $row_2["menu_4"] ?></li>
+                              <?php } ?>
+                              <?php
+                              if ($row_2["menu_5"] != "") {
+                              ?>
+                              <li><?= $row_2["menu_5"] ?></li>
+                              <?php } ?>
+                            </ul>
+                          <?php }
+                          } ?>
+                          <br>
+                          <small>
+                            <address class="text-left">
+                              <?= $row["address"] ?><br>
+                              <?= $row["state"] ?>,  <?= $row["zipcode"] ?>
+                              <br><br>
+                              <abbr title="Phone">P:</abbr> <?= $row["phone"] ?>
+                            </address>
+                          </small>
+                          <?php
+                            if ($row["website"] != "") {
+                          ?>
+                            <a href="<?= $row["website"] ?>" target="_blank">
+                              <small class="text-left"> click for site..</small>
+                            </a>
+                          <?php } ?>
+                        </div>
+                      </div>
+                    </div>
+                    <?php
+                  }
+                }
+ 
+              ?>
+            </div> 
+          </div>
+          <div class="row restaurant" id="capitolhill">
+            <h3 id="capitolhill-close">Bellevue<small>(click to close)</small></h3>
+            <div class="row">
+              <?php
+                $query = "SELECT * 
+                          FROM restaurant r
+                          INNER JOIN address a ON r.id = a.restaurant_id
+                          WHERE location =  'Capitol Hill'
                           ORDER BY name";
 
                 if ($result = mysqli_query($conn, $query)) { 
@@ -1020,6 +1243,18 @@
               scrollTop: $( "#chinatown" ).offset().top -100
           }, 600);
       });
+      $("#northgate-toggle").click(function(){
+          $("#northgate").toggle("slow");
+          $("body, html").animate({ 
+              scrollTop: $( "#northgate" ).offset().top -100
+          }, 600);
+      });
+      $("#capitolhill-toggle").click(function(){
+          $("#capitolhill").toggle("slow");
+          $("body, html").animate({ 
+              scrollTop: $( "#capitolhill" ).offset().top -100
+          }, 600);
+      });
       $("#bellevue-toggle").click(function(){
           $("#bellevue").toggle("slow");
           $("body, html").animate({ 
@@ -1068,6 +1303,18 @@
           $("#chinatown").toggle("slow");
           $("body, html").animate({ 
               scrollTop: $( "#chinatown-toggle" ).offset().top -100
+          }, 600);
+      });
+      $("#northgate-close").click(function(){
+          $("#northgate").toggle("slow");
+          $("body, html").animate({ 
+              scrollTop: $( "#northgate-toggle" ).offset().top -100
+          }, 600);
+      });
+      $("#capitolhill-close").click(function(){
+          $("#capitolhill").toggle("slow");
+          $("body, html").animate({ 
+              scrollTop: $( "#capitolhill-toggle" ).offset().top -100
           }, 600);
       });
       $("#bellevue-close").click(function(){
