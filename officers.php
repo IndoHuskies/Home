@@ -2,7 +2,7 @@
     require_once 'database.php';
 
     $sql = "SELECT o.department_id, o.primary_id, o.name, o.standing, o.major, o.graduation, o.head, o.media, p.primary_name, d.department_name, d.email
-            FROM officer o
+            FROM officer2015 o
             INNER JOIN primary_pos p ON p.id = o.primary_id
             LEFT JOIN department d ON d.id = o.department_id
             GROUP BY name
@@ -320,7 +320,7 @@
             } else {
                 title = item.department_name;
             }
-            var result = '<div class="officer"><div class="off-item"><div class="off-info"><div class="off-info-front"><img src="' + item.media +'" class="img-circle"></div><div class="off-info-back"><p><a href="mailto:' + email + '"><i class="glyphicon glyphicon-envelope"></i></a></p><p>'+ item.standing +'<br>'+ item.major +'<br>'+ item.graduation +'</p></div></div></div><span class="off-name">'+ item.name +'</span><span class="off-title">'+ title +'</span></div>';
+            var result = '<div class="officer"><div class="off-item"><div class="off-info"><div class="off-info-front"><img src="img/officer2015/' + item.media +'" class="img-circle"></div><div class="off-info-back"><p><a href="mailto:' + email + '"><i class="glyphicon glyphicon-envelope"></i></a></p><p>'+ item.standing +'<br>'+ item.major +'<br>'+ item.graduation +'</p></div></div></div><span class="off-name">'+ item.name +'</span><span class="off-title">'+ title +'</span></div>';
 
         return result;
      }
