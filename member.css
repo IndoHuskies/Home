@@ -1,0 +1,39 @@
+html {
+	height: 100%;
+}
+
+body {
+	width: 700px;
+	margin: 1em auto;
+	background-color: white;
+	border: 10px rgb(129, 20, 27) solid;
+	padding: 20px;
+}
+
+hr {
+	width: 90%;
+	border: 1px rgb(129, 20, 27) solid;
+}
+
+h1 {
+	text-align: center;
+}
+
+input[type="submit"] {
+	width: 90%;
+	font-size: 24px;
+}
+
+strong {
+	float: left;
+	text-align: right;
+	width: 280px;
+	padding-right: 1em;
+	font-size: 16px;
+}
+
+div {
+	margin-bottom: 20px;
+	margin-left: 20px;
+}
+

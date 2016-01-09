@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>ISAUW Member Sign Up</title>
+		<link href="member.css" type="text/css" rel="stylesheet" />
+	</head>
+	
+	<body>
+		<h1>ISAUW Member Sign Up</h1>
+
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</p>
+		
+		<hr />
+		
+		<form action="member.php" method="post">
+		<div>
+			<label>
+				<strong>Name</strong> 
+				<input type="text" name="name">
+			</label>
+		</div>
+
+		<div>
+			<label>
+				<strong>Email</strong> 
+				<input type="text" name="email">
+			</label>
+		</div>
+
+		<div>
+			<label>
+				<strong>Major</strong> 
+				<input type="text" name="major">
+			</label>
+		</div>
+
+		<div>
+			<label>
+				<strong>Class Standing</strong>
+				<select name="standing">
+					<option>Freshman</option>
+					<option>Sophomore</option>
+					<option>Junior</option>
+					<option>Senior</option>
+					<!-- <option>Graduate School</option> -->
+				</select>
+			</label>
+		</div>	
+
+		<div>
+			<label>
+				<strong>Sign Up Date</strong>
+				<input type="text" name="signdate">
+			</label>
+		</div>
+
+		<div>	
+			<label>
+				<input type="checkbox" name="subscription" value="subs">Subscribe
+			</label>
+		</div>
+
+		<div>
+			<input type="submit" value="Sign Me Up!" />
+		</div>
+
+	</form>
+	</body>
+</html>
