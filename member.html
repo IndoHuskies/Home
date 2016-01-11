@@ -19,47 +19,41 @@
 		<div>
 			<label>
 				<span>Name</span> 
-				<input type="text" name="name">
+				<input type="text" name="name" required>
 			</label>
 		</div>
 
 		<div>
 			<label>
 				<span>Email</span> 
-				<input type="text" name="email">
+				<input type="text" name="email" required>
 			</label>
 		</div>
 
 		<div>
 			<label>
 				<span>Major</span> 
-				<input type="text" name="major">
+				<input type="text" name="major" required>
 			</label>
 		</div>
 
 		<div>
 			<label>
 				<span>Class Standing</span>
-				<select name="standing">
-					<option>Freshman</option>
-					<option>Sophomore</option>
-					<option>Junior</option>
-					<option>Senior</option>
-					<!-- <option>Graduate School</option> -->
+				<select name="standing" required>
+					<option value="" disabled selected>Select one</option>
+					<option value="freshman">Freshman</option>
+					<option value="sophomore">Sophomore</option>
+					<option value="junior">Junior</option>
+					<option value="senior">Senior</option>
+					<option value="graduate">Graduate School</option>
 				</select>
 			</label>
 		</div>	
 
-		<div>
-			<label>
-				<span>Sign Up Date</span>
-				<input type="text" name="signdate" placeholder="dd/mm/yyyy">
-			</label>
-		</div>
-
 		<div class="subs">	
 			<label>
-				<input type="checkbox" name="subscription" value="subs"> Subscribe
+				<input type="checkbox" name="subscription" value="subs"> Subscribe for updates on events and volunteer opportunities!
 			</label>
 		</div>
 
