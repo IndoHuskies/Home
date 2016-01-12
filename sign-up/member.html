@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>ISAUW Member Sign Up</title>
+		<link href="member.css" type="text/css" rel="stylesheet" />
+
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	</head>
+	
+	<body>
+		<h1>ISAUW Member Sign Up</h1>
+
+		<p>
+			Thank you for your interest for the Indonesian Student Association at the University of Washington. If you are interested in Indonesian communities or culture, you can join us as a Member of Indonesian Student Association at the University of Washington by filling
+		the form below so that you'll be the first one to know if we have new exciting events and volunteer opportuninites.
+		</p>
+		
+		<hr />
+		
+		<form id="member-form" onsubmit="return false;">
+		<div>
+			<label>
+				<span>Name</span> 
+				<input type="text" name="name" required>
+			</label>
+		</div>
+
+		<div>
+			<label>
+				<span>Email</span> 
+				<input type="text" name="email" required>
+			</label>
+		</div>
+
+		<div>
+			<label>
+				<span>Major</span> 
+				<input type="text" name="major" required>
+			</label>
+		</div>
+
+		<div>
+			<label>
+				<span>Class Standing</span>
+				<select id="standing" name="standing" required>
+					<option value="" disabled selected>Select one</option>
+					<option value="freshman">Freshman</option>
+					<option value="sophomore">Sophomore</option>
+					<option value="junior">Junior</option>
+					<option value="senior">Senior</option>
+					<option value="graduate">Graduate School</option>
+				</select>
+			</label>
+		</div>	
+
+		<div class="subs">	
+			<label>
+				<input type="checkbox" name="subscription" value="subs"> Subscribe for updates on events and volunteer opportunities!
+			</label>
+		</div>
+
+		<div>
+			<input type="submit" value="Sign Me Up!" />
+		</div>
+
+	</form>
+
+	<script type="text/javascript">
+	$("input[type=submit]").click(function(e) {			
+
+		// Validate first
+		if(!$('#member-form')[0].checkValidity()) {
+			alert("Please fill out all the required fields!");
+			return false;
+		}
+
+		var tdate = new Date();
+		var dd = tdate.getDate(); //yields day
+		var mm = tdate.getMonth()+1; //yields month
+		var yyyy = tdate.getFullYear(); //yields year
+		var xxx = yyyy + "-" + mm + "-" + dd;
+
+		var subsVal = "no";
+		if($('input[name=subscription]').is(':checked') == true ) {
+			subsVal = "yes";
+		}
+		
+        var formData =
+        {
+            name: $('input[name=name').val(),
+    		email: $('input[name=email]').val(),
+    		major: $('input[name=major]').val(),
+    		standing: $('#standing').find(":selected").text(),
+    		subscription: subsVal,
+    		action: "submit_member",
+    		dates: xxx
+            
+        }
+
+        e.preventDefault(); //STOP default action
+
+        
+        $.ajax({
+            url: 'member_sign_up.php',
+            type: 'POST',
+            data: formData
+        }).success(function( msg ) {
+        	if (msg == 'Success') {
+				alert("Thank you! We will be in contact with you shortly");
+				$('#member-form')[0].reset();           
+			} else {
+                alert("Oops! Something went wrong. Please try again!");
+            }
+            
+        }).fail(function() {
+            alert("Error: Server not available");
+
+        });
+		  
+    });
+	</script>
+	</body>
+</html>
