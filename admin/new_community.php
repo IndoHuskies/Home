@@ -23,5 +23,5 @@
 
 	$stmt->execute();
 
-	header("Location: ../admin/dashboard.html");
+	header("Location: ../admin/dashboard.php");
 ?>

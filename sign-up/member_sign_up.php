@@ -1,9 +1,9 @@
 <?php
 	if($_POST['action'] == 'submit_member') {
 		$servername = "localhost";
-		$db_name = "???";
-		$username = "???";
-		$password = "???";
+		$db_name = "isauw_member";
+		$username = "isauw_main";
+		$password = "isauw2014";
 
 		// Create connection
 		try {

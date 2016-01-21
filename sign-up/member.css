@@ -20,6 +20,25 @@ h1 {
 	text-align: center;
 }
 
+#member-list li {
+	margin-bottom: 30px;
+}
+
+#member-list div {
+	margin-top: 5px; 
+}
+
+#member-list span {
+	display: inline-block;
+	float: none;
+	text-align: left;
+	width: 150px;
+}
+
+#member-list .label {
+	font-weight: bold;
+}
+
 
 
 input[type="submit"] {

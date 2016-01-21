@@ -45,7 +45,7 @@ function navbar() {
 ?>
 
 	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    	<div id="menu-icon"><span class="glyphicon glyphicon-menu-hamburger">Hello</span></div>
+    	<div id="menu-icon"><span class="glyphicon glyphicon-menu-hamburger">ISAUW Admin</span></div>
     	<div id="isauw-brand"><a class="navbar-brand" href="http://isauw.org/"><img src="../img/logoisauw.png" style="width: 2em;"></a></div>
     </div>
 
@@ -69,6 +69,7 @@ function sideNavbar() {
         <ul class="nav nav-sidebar">
             <li id="officer"><a href="officer.php">Officers</a></li>
             <li id="community"><a href="community.php">Community</a></li>
+            <li id="community"><a href="merchandise.php">Merchandise</a></li>
         </ul>
     </div>
 <?php

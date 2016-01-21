@@ -4,7 +4,7 @@
 	require_once('common.php');
 
 	$sql = "SELECT * 
-			FROM officer o
+			FROM officer2015 o
 			JOIN department d ON o.department_id = d.id
 			JOIN primary_pos p ON o.primary_id = p.id";
 
