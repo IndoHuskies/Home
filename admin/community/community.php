@@ -1,10 +1,12 @@
 <?php
-	require_once("../models/config.php");
-	require_once('../database.php');
-	require_once('common.php');
+	require_once("../../models/config.php");
+	require_once('../../database.php');
+	require_once('../common.php');
 
-	$sql = "SELECT m.id AS id, m.name AS name, m.s AS s_size, m.m AS m_size, m.l AS l_size, m.xl AS xl_size, m.image AS image, m.price AS price
-			FROM  `merchandise` m";
+	$sql = "SELECT c.id AS id, c.name AS org_name, c.link AS link, ct.name AS org_type
+			FROM  `community` c
+			JOIN community_type ct ON ct.id = c.id_type
+			LIMIT 0 , 30";
 
 	$stmt = $conn->prepare($sql);
 	$stmt->execute();
@@ -14,15 +16,15 @@
     	header("Location: index.php");
 	}
 
-adminHeader("Dashboard - Merchandise");
-navbar();
+adminHeader("Dashboard - Events", "../");
+navbar("../");
 ?>
 <body>
 
     <div class="container-fluid">
       	<div class="row">
 
-        	<?php sideNavbar(); ?>
+        	<?php sideNavbar("../"); ?>
 
             <div id="main_content" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
 				<script src="jquery.Jcrop.min.js"></script>
@@ -31,42 +33,37 @@ navbar();
 				<div class="container">
 					<div class="row">
 						<div class="col-md-6">
-							<form role="form" method="post" action="new_merchandise.php">
+							<form role="form" method="post" action="new_community.php">
 								<div class="form-group">
-									<label for="merch_name">Merchandise Name</label>
-									<input type="text" class="form-control" id="merch_name" name="merch_name" placeholder="Merchandise name">
+									<label for="eventName">Community Name</label>
+									<input type="text" class="form-control" id="inputEventName" name="community_name" placeholder="community name">
 								</div>
 								<div class="form-group">
-									<label for="merch_price">Price</label>
-									<input type="number" step="0.01" class="form-control" id="merch_price" name="merch_price" placeholder="price">
+									<label for="eventName">Community Link</label>
+									<input type="text" class="form-control" id="inputEventName" name="community_link" placeholder="community link">
 								</div>
 								<div class="form-group">
-									<label>Quantity &amp; Size</label>
-									<div>
+									<label for="eventTime">Community Type</label>
+									<div class="radio">
 										<label>
-											<input type="number" name="merch_small" value="0" min="0">
-											Small
+											<input type="radio" name="community_type" id="optionsRadios1" value="1" checked>
+											Student Organization
 										</label>
 									</div>
-									<div>
+									<div class="radio">
 										<label>
-											<input type="number" name="merch_medium" value="0" min="0">
-											Medium
+											<input type="radio" name="community_type" id="optionsRadios2" value="2">
+											Religious Community
 										</label>
 									</div>
-									<div>
+									<div class="radio disabled">
 										<label>
-											<input type="number" name="merch_large" value="0" min="0">
-											Large
-										</label>
-									</div>
-									<div>
-										<label>
-											<input type="number" name="merch_xlarge" value="0" min="0">
-											Xtra - Large
+											<input type="radio" name="community_type" id="optionsRadios3" value="3">
+											Nonprofit Organization
 										</label>
 									</div>
 								</div>
+								<textarea class="editor" id="community-description" name="community_description"></textarea>
 								<input type="text" name="profile" id="profileImg" style="visibility: hidden; display: inline;">
 								<button type="submit" class="btn btn-default">submit</submit>
 							</form>
@@ -108,18 +105,16 @@ navbar();
 				            </div>
 						</div>
 						<div class="col-md-12">
-							<h2 class="sub-header">Merchandise List</h2>
+							<h2 class="sub-header">Community List</h2>
 							<div class="table-responsive">
 								<table id="event-table" class="display" cellspacing="0" width="100%">
 									<thead>
 										<tr>
 											<th>#</th>
 											<th>Name</th>
-											<th>Price</th>
-											<th>Small</th>
-											<th>Medium</th>
-											<th>Large</th>
-											<th>X-Large</th>
+											<th>Type</th>
+											<th>Link</th>
+											<th>edit/Delete</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -130,15 +125,12 @@ navbar();
 												?>
 												<tr>
 													<td><?= $i; ?></td>
-													<td><?= $row['name']; ?></td>
-													<td><?= $row['price']; ?></td>
-													<td><?= $row['s_size']; ?></td>
-													<td><?= $row['m_size']; ?></td>
-													<td><?= $row['l_size']; ?></td>
-													<td><?= $row['xl_size']; ?></td>
+													<td><?= $row['org_name']; ?></td>
+													<td><?= $row['org_type']; ?></td>
+													<td><?= $row['link']; ?></td>
 													<td>
-														<a href="merchandise_edit.php?id=<?= $row['id']; ?>" class="btn btn-default comm-edit">Edit</a>
-														<a href="merchandise_delete.php?id=<?= $row['id']; ?>" class="btn btn-danger">DELETE</a>
+														<a href="community_edit.php?id=<?= $row['id']; ?>" class="btn btn-default comm-edit">Edit</a>
+														<a href="community_delete.php?id=<?= $row['id']; ?>" class="btn btn-danger">DELETE</a>
 													</td>
 												</tr>
 												<?php

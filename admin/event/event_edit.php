@@ -1,7 +1,7 @@
 <?php
-require_once("../models/config.php");
-require_once('../database.php');
-require_once('common.php');
+require_once("../../models/config.php");
+require_once('../../database.php');
+require_once('../common.php');
 
 $event = intval($_GET['id']);
 
@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$stmt->bindParam(':media', $media, PDO::PARAM_STR);   
 	$stmt->execute();
 
-	header("Location: dashboard.php");
+	header("Location: event.php");
 } else {
 	$sql = "SELECT * FROM event WHERE id = :id ";
 
@@ -59,8 +59,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     	header("Location: index.php");
 	}
 
-	adminHeader("Dashboard - Event Editor");
-	navbar();
+	adminHeader("Dashboard - Event Editor", "../");
+	navbar("../");
 	?>
 
 
@@ -69,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     	<div class="container-fluid">
       		<div class="row">
 
-        		<?php sideNavbar(); ?>
+        		<?php sideNavbar("../"); ?>
 
             	<div id="main_content" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
 
@@ -204,7 +204,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 									</form>
 									<div class="col-md-4" id="upload_crop">
 										<!-- Image Echo for profile, using class="img-thumbnail img-circle" -->
-										<img src="../<?= $row['media'] ?>" alt="profile_preview" class="img-thumbnail img-circle">
+										<img src="../../<?= $row['media'] ?>" alt="profile_preview" class="img-thumbnail img-circle">
 									</div>
 								</div>
 							</div>

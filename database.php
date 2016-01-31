@@ -1,8 +1,5 @@
 <?php
-	$servername = "localhost";
-	$db_name = "???";
-	$username = "??";
-	$password = "?";
+	
 
 	// Create connection
 	try {
@@ -29,48 +26,39 @@ function TopHeader($title, $path) {
         <!-- Bootstrap core CSS -->
         <link href="<?= $path ?>css/bootstrap.css" rel="stylesheet">   
 
-        <!-- Custom styles for this template -->
-        <link href="<?= $path ?>css/carousel.css" rel="stylesheet">
-
-        <link rel="stylesheet" type="text/css" href="<?= $path ?>css/style.css">
+        <link rel="stylesheet" type="text/css" href="<?= $path ?>/css/style.css">
+        <link rel="stylesheet" type="text/css" href="<?= $path ?>isauwcard/css/template.css">
         <!-- Survival Guide -->
         <link rel="stylesheet" type="text/css" href="<?= $path ?>css/sv-guide.css">
-        <!-- Photo Gallery -->
-        <link rel="stylesheet" type="text/css" href="<?= $path ?>css/photo_gallery.css">
 
-        <link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css'>
 
     </head>
     <!-- NAVBAR ================================================== -->
     <body>
 
-        <!-- Navbar -->
-        <div class="navbar navbar-default navbar-static-top" role="navigation">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="/">
-                        <img src="<?= $path ?>img/Logo-resize.png">
-                    </a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul id="navbar-ul" class="nav navbar-nav navbar-right">
-                        <li><a href="/">Home</a></li>
-                        <li><a href="<?= $path ?>officers.php">Officers</a></li>
-                        <li><a href="<?= $path ?>sponsorship.php">Sponsorship</a></li>
-                        <li><a href="/isauwcard">ISAUW Card</a></li>
-                        <li><a href="<?= $path ?>event.php">Events</a></li>
-                        <li><a href="<?= $path ?>keraton2015">Keraton 2015</a></li>
-                        <li><a href="<?= $path ?>community.php">Community</a></li>
-                    </ul>
-
-                </div><!--/.nav-collapse -->
+        <!-- Navigation Section -->
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#"><img src="img/logo_isauw_16.png" id="logo"></a>
             </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/index.php">HOME</a></li>
+                <li><a href="/officers.php">OFFICERS</a></li>
+                <li><a href="/isauwcard/">ISAUW CARD</a></li>
+                <li><a href="/event.php">EVENT</a></li>
+                <li><a href="/community.php">COMMUNITY</a></li>
+              </ul>
+            </div><!--/.nav-collapse -->
+          </div>
         </div>
 
     <?php

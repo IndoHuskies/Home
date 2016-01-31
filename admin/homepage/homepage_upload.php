@@ -1,5 +1,5 @@
 <?php
-	require_once('../database.php');
+	require_once('../../database.php');
 
 	$id = intval($_POST['homepage_id']);
 	$imgname = uploadImageFile();
@@ -15,7 +15,7 @@
 	$stmt->bindParam(':link', $link, PDO::PARAM_STR);
 	$stmt->execute();
 
-	header("Location: ../admin/homepage.php");  
+	header("Location: homepage.php");  
 
 function uploadImageFile() {
 

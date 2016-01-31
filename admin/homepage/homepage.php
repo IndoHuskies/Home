@@ -1,7 +1,7 @@
 <?php
-  	require_once("../models/config.php");
-	require_once('../database.php');
-	require_once('common.php');
+  	require_once("../../models/config.php");
+	require_once('../../database.php');
+	require_once('../common.php');
 
 
 	$sql = "SELECT *
@@ -17,8 +17,8 @@
     	header("Location: index.php");
   	}
 
-  	adminHeader("Dashboard - Homepage");
-  	navbar();
+  	adminHeader("Dashboard - Homepage", "../");
+  	navbar("../");
 ?>
 
 <body>
@@ -26,7 +26,7 @@
     <div class="container-fluid">
       	<div class="row">
 
-        	<?php sideNavbar(); ?>
+        	<?php sideNavbar("../"); ?>
 
             <div id="main_content" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
 				<hr>
@@ -41,7 +41,7 @@
 					?>
 					<div class="row">
 						<div class="col-md-6">
-							<img src="../<?= $row['img'] ?>" class="img-responsive img-thumbnail">
+							<img src="../../<?= $row['img'] ?>" class="img-responsive img-thumbnail">
 						</div>
 						<div class="col-md-6">
 							<form method="post" action="homepage_upload.php" enctype="multipart/form-data">

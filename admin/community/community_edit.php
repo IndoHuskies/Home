@@ -1,6 +1,6 @@
 <?php
 
-require_once('../database.php');
+require_once('../../database.php');
 
 $community = $_GET['id'];
 
@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	// use PARAM_STR although a number  
 	$stmt->execute();
 
-	header("Location: ../admin/dashboard.html");
+	header("Location: community.php");
 } else {
 	$sql = "SELECT *
 	FROM  community
@@ -117,7 +117,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 						</form>
 						<div class="col-md-4" id="upload_crop">
 							<!-- Image Echo for profile, using class="img-thumbnail img-circle" -->
-							<img src="../<?= $row['pic']; ?>" alt="profile_preview" class="img-thumbnail img-circle">
+							<img src="../../<?= $row['pic']; ?>" alt="profile_preview" class="img-thumbnail img-circle">
 						</div>
 					</div>
 				</div>

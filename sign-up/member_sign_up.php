@@ -1,9 +1,6 @@
 <?php
 	if($_POST['action'] == 'submit_member') {
-		$servername = "localhost";
-		$db_name = "isauw_member";
-		$username = "isauw_main";
-		$password = "isauw2014";
+		
 
 		// Create connection
 		try {
@@ -21,13 +18,13 @@
 		$major = $conn->quote($_POST['major']);
 		$standing = $conn->quote($_POST['standing']);
 		$dates = $conn->quote($_POST['dates']);
-		$subscription = $conn->quote($_POST['subscription']);
+		//$subscription = $conn->quote($_POST['subscription']);
 
 
 		$sql = "INSERT INTO member 
-			(name, email, major, standing, sign_up_date, subscription) 
+			(name, email, major, standing, sign_up_date) 
 			VALUES 
-			(".$name.", ".$email.", ".$major.", ".$standing.", ".$dates.", ".$subscription.")";
+			(".$name.", ".$email.", ".$major.", ".$standing.", ".$dates.")";
 
 		$stmt = $conn->prepare($sql);
 		$stmt->execute();

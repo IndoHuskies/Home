@@ -1,30 +1,28 @@
 <?php
-	require_once("../models/config.php");
-	require_once('../database.php');
-	require_once('common.php');
+	require_once("../../models/config.php");
+	require_once('../../database.php');
+	require_once('../common.php');
 
-	$sql = "SELECT c.id AS id, c.name AS org_name, c.link AS link, ct.name AS org_type
-			FROM  `community` c
-			JOIN community_type ct ON ct.id = c.id_type
-			LIMIT 0 , 30";
+	$sql = "SELECT m.id AS id, m.name AS name, m.s AS s_size, m.m AS m_size, m.l AS l_size, m.xl AS xl_size, m.image AS image, m.price AS price
+			FROM  `merchandise` m";
 
 	$stmt = $conn->prepare($sql);
 	$stmt->execute();
 	$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 	if(!isUserLoggedIn()) {
-    	header("Location: index.php");
+    	header("Location: ../index.php");
 	}
 
-adminHeader("Dashboard - Events");
-navbar();
+adminHeader("Dashboard - Merchandise", "../");
+navbar("../");
 ?>
 <body>
 
     <div class="container-fluid">
       	<div class="row">
 
-        	<?php sideNavbar(); ?>
+        	<?php sideNavbar("../"); ?>
 
             <div id="main_content" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
 				<script src="jquery.Jcrop.min.js"></script>
@@ -33,44 +31,49 @@ navbar();
 				<div class="container">
 					<div class="row">
 						<div class="col-md-6">
-							<form role="form" method="post" action="new_community.php">
+							<form role="form" method="post" action="new_merchandise.php">
 								<div class="form-group">
-									<label for="eventName">Community Name</label>
-									<input type="text" class="form-control" id="inputEventName" name="community_name" placeholder="community name">
+									<label for="merch_name">Merchandise Name</label>
+									<input type="text" class="form-control" id="merch_name" name="merch_name" placeholder="Merchandise name">
 								</div>
 								<div class="form-group">
-									<label for="eventName">Community Link</label>
-									<input type="text" class="form-control" id="inputEventName" name="community_link" placeholder="community link">
+									<label for="merch_price">Price</label>
+									<input type="number" step="0.01" class="form-control" id="merch_price" name="merch_price" placeholder="price">
 								</div>
 								<div class="form-group">
-									<label for="eventTime">Community Type</label>
-									<div class="radio">
+									<label>Quantity &amp; Size</label>
+									<div>
 										<label>
-											<input type="radio" name="community_type" id="optionsRadios1" value="1" checked>
-											Student Organization
+											<input type="number" name="merch_small" value="0" min="0">
+											Small
 										</label>
 									</div>
-									<div class="radio">
+									<div>
 										<label>
-											<input type="radio" name="community_type" id="optionsRadios2" value="2">
-											Religious Community
+											<input type="number" name="merch_medium" value="0" min="0">
+											Medium
 										</label>
 									</div>
-									<div class="radio disabled">
+									<div>
 										<label>
-											<input type="radio" name="community_type" id="optionsRadios3" value="3">
-											Nonprofit Organization
+											<input type="number" name="merch_large" value="0" min="0">
+											Large
+										</label>
+									</div>
+									<div>
+										<label>
+											<input type="number" name="merch_xlarge" value="0" min="0">
+											Xtra - Large
 										</label>
 									</div>
 								</div>
-								<textarea class="editor" id="community-description" name="community_description"></textarea>
 								<input type="text" name="profile" id="profileImg" style="visibility: hidden; display: inline;">
 								<button type="submit" class="btn btn-default">submit</submit>
 							</form>
 						</div>
 						<div class="col-md-6">
 							<form id="upload_form" enctype="multipart/form-data" method="post" action="upload.php" onsubmit="return checkForm()">
-					          <p class="bg-danger">NOTICE: Please upload an image for the Community</p>
+					          <p class="bg-danger">NOTICE: Please upload an image for the Merchandise</p>
 					          <hr>
 					                      <!-- hidden crop params -->
 					                      <input type="hidden" id="x1" name="x1" />
@@ -105,16 +108,18 @@ navbar();
 				            </div>
 						</div>
 						<div class="col-md-12">
-							<h2 class="sub-header">Community List</h2>
+							<h2 class="sub-header">Merchandise List</h2>
 							<div class="table-responsive">
 								<table id="event-table" class="display" cellspacing="0" width="100%">
 									<thead>
 										<tr>
 											<th>#</th>
 											<th>Name</th>
-											<th>Type</th>
-											<th>Link</th>
-											<th>edit/Delete</th>
+											<th>Price</th>
+											<th>Small</th>
+											<th>Medium</th>
+											<th>Large</th>
+											<th>X-Large</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -125,12 +130,15 @@ navbar();
 												?>
 												<tr>
 													<td><?= $i; ?></td>
-													<td><?= $row['org_name']; ?></td>
-													<td><?= $row['org_type']; ?></td>
-													<td><?= $row['link']; ?></td>
+													<td><?= $row['name']; ?></td>
+													<td><?= $row['price']; ?></td>
+													<td><?= $row['s_size']; ?></td>
+													<td><?= $row['m_size']; ?></td>
+													<td><?= $row['l_size']; ?></td>
+													<td><?= $row['xl_size']; ?></td>
 													<td>
-														<a href="community_edit.php?id=<?= $row['id']; ?>" class="btn btn-default comm-edit">Edit</a>
-														<a href="community_delete.php?id=<?= $row['id']; ?>" class="btn btn-danger">DELETE</a>
+														<a href="merchandise_edit.php?id=<?= $row['id']; ?>" class="btn btn-default comm-edit">Edit</a>
+														<a href="merchandise_delete.php?id=<?= $row['id']; ?>" class="btn btn-danger">DELETE</a>
 													</td>
 												</tr>
 												<?php

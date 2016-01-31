@@ -38,19 +38,7 @@ h2 {
 	margin-bottom: 40px;
 }
 
-.jumbotron {
-	padding-top: 100px;
-	margin-bottom: 0px;
-	background: linear-gradient(to right,#640f15, #80151c, #aa1f29);
-	color: white; 
-	padding-left: 60px;
-	height: 300px;
-}
 
-.jumbotron h1 {
-	margin-top: 40px;
-	font-size: 36px;
-}
 
 .marketing h1 {
 	text-align: center;

@@ -1,7 +1,7 @@
 <?php
-require_once("../models/config.php");
-require_once('../database.php');
-require_once('common.php');
+require_once("../../models/config.php");
+require_once('../../database.php');
+require_once('../common.php');
 
 $merch = intval($_GET['id']);
 
@@ -45,11 +45,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 	if(!isUserLoggedIn()) {
-    	header("Location: index.php");
+    	header("Location: ../index.php");
 	}
 
-	adminHeader("Dashboard - Merchandise Editor");
-	navbar();
+	adminHeader("Dashboard - Merchandise Editor", "../");
+	navbar("../");
 	?>
 
 
@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     	<div class="container-fluid">
       		<div class="row">
 
-        		<?php sideNavbar(); ?>
+        		<?php sideNavbar("../"); ?>
 
             	<div id="main_content" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
 
@@ -114,7 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 								</div>
 								<div class="col-md-6">
 									<form id="upload_form" enctype="multipart/form-data" method="post" action="upload.php" onsubmit="return checkForm()">
-										<p class="bg-danger">NOTICE: Please upload an image for the event</p>
+										<p class="bg-danger">NOTICE: Please upload an image for the merchandise</p>
 										<hr>
 											<!-- hidden crop params -->
 										<input type="hidden" id="x1" name="x1" />
@@ -145,7 +145,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 									</form>
 									<div class="col-md-4" id="upload_crop">
 										<!-- Image Echo for profile, using class="img-thumbnail img-circle" -->
-										<img src="../<?= $row['media'] ?>" alt="profile_preview" class="img-thumbnail img-circle">
+										<img src="../../<?= $row['media'] ?>" alt="profile_preview" class="img-thumbnail img-circle">
 									</div>
 								</div>
 							</div>

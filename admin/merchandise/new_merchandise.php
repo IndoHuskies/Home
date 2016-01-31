@@ -1,5 +1,5 @@
 <?php
-	require_once('../database.php');
+	require_once('../../database.php');
 
 	$name = $_POST['merch_name'];
 	$price = $_POST['merch_price'];
@@ -28,5 +28,5 @@
 
 	$stmt->execute();
 
-	header("Location: ../admin/merchandise.php");
+	header("Location: merchandise.php");
 ?>

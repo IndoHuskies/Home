@@ -1,5 +1,5 @@
 <?php
-	require_once('../database.php');
+	require_once('../../database.php');
 
 	$name = $_POST['event_name'];
 	$date = $_POST['event_date'];
@@ -77,5 +77,5 @@
 	$stmt->bindParam(':media', $media, PDO::PARAM_STR);   
 	$stmt->execute();
 
-	header("Location: ../admin/dashboard.php");
+	header("Location: event.php");
 ?>

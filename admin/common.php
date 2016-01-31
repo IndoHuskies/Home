@@ -1,7 +1,7 @@
 <?php
 
 # Common header for dashboard
-function adminHeader($title) {
+function adminHeader($title, $path) {
 ?>
 
 	<html lang="en">
@@ -10,7 +10,7 @@ function adminHeader($title) {
 		    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 		    <meta name="description" content="This is the dasboard for editing ISAUW website">
 		    <meta name="author" content="Nabil Sutjipto, Marcella Cindy Prasetio">
-		    <link rel="icon" href="../../favicon.ico">
+		    <link rel="icon" href="<?= $path ?>../../favicon.ico">
 
 		    <title><?php echo $title ?></title>
 
@@ -22,7 +22,7 @@ function adminHeader($title) {
 		    <!-- Optional theme -->
 		    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 		    <!-- Custom styles for this template -->
-		    <link href="dashboard.css" rel="stylesheet">
+		    <link href="<?= $path ?>dashboard.css" rel="stylesheet">
 
 		  	<style id="holderjs-style" type="text/css"></style><style type="text/css"></style>
 
@@ -41,12 +41,12 @@ function adminHeader($title) {
 }
 
 # Common Navigation bar
-function navbar() {
+function navbar($path) {
 ?>
 
 	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     	<div id="menu-icon"><span class="glyphicon glyphicon-menu-hamburger">ISAUW Admin</span></div>
-    	<div id="isauw-brand"><a class="navbar-brand" href="http://isauw.org/"><img src="../img/logoisauw.png" style="width: 2em;"></a></div>
+    	<div id="isauw-brand"><a class="navbar-brand" href="http://isauw.org/"><img src="<?= $path ?>../img/logoisauw.png" style="width: 2em;"></a></div>
     </div>
 
 <?php
@@ -54,22 +54,22 @@ function navbar() {
 
 
 # Side navbar
-function sideNavbar() {
+function sideNavbar($path) {
 ?>
 	<div class="col-sm-3 col-md-2 sidebar">
         <ul class="nav nav-sidebar">
-        	<li class="active" id="overview"><a href="dashboard.php">Overview</a></li>
-            <li id="homepage"><a href="homepage.php">Homepage</a></li>
-            <li id="event"><a href="events.php">Events</a></li>
+        	<li class="active" id="overview"><a href="<?= $path ?>dashboard.php">Overview</a></li>
+            <li id="homepage"><a href="<?= $path ?>homepage/homepage.php">Homepage</a></li>
+            <li id="event"><a href="<?= $path ?>event/events.php">Events</a></li>
             <li id="volunteer"><a href="#">Keraton 2015 Volunteer</a></li>
         </ul>
         <ul class="nav nav-sidebar">
             <li id="blog"><a href="#">ISAUW Card</a></li>
         </ul>
         <ul class="nav nav-sidebar">
-            <li id="officer"><a href="officer.php">Officers</a></li>
-            <li id="community"><a href="community.php">Community</a></li>
-            <li id="community"><a href="merchandise.php">Merchandise</a></li>
+            <li id="officer"><a href="<?= $path ?>officer.php">Officers</a></li>
+            <li id="community"><a href="<?= $path ?>community/community.php">Community</a></li>
+            <li id="merchandise"><a href="<?= $path ?>merchandise/merchandise.php">Merchandise</a></li>
         </ul>
     </div>
 <?php

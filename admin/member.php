@@ -1,22 +1,24 @@
 <?php
 	require_once("../models/config.php");
-	require_once('../database.php');
 	require_once('common.php');
 
-	$sql = "SELECT * 
-			FROM officer2015 o
-			JOIN department d ON o.department_id = d.id
-			JOIN primary_pos p ON o.primary_id = p.id";
+	
+
+	// Create connection
+	try {
+		$conn = new PDO("mysql:host=$servername;dbname=$db_name", $username, $password);
+		//Connect to database
+	} catch (PDOException $e) {
+		echo $e->getMessage();
+	}
+
+	$sql = "SELECT * FROM member";
 
 	$stmt = $conn->prepare($sql);
 	$stmt->execute();
 	$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-	if(!isUserLoggedIn()) {
-    	header("Location: index.php");
-	}
-
-adminHeader("Dashboard - Events", "");
+adminHeader("Dashboard - Member", "");
 navbar("");
 ?>
 <body>
@@ -33,16 +35,18 @@ navbar("");
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
-							<h2 class="sub-header">Officer List</h2>
+							<h2 class="sub-header">Member List</h2>
+							<h3>Total member: <?= sizeof($result) ?></h3>
 							<div class="table-responsive">
 								<table id="event-table" class="display" cellspacing="0" width="100%">
 									<thead>
 										<tr>
 											<th>#</th>
 											<th>Name</th>
-											<th>Department</th>
-											<th>Primary</th>
-											<th>edit</th>
+											<th>Email</th>
+											<th>Major</th>
+											<th>Standing</th>
+											<th>Sign-up Date</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -54,9 +58,10 @@ navbar("");
 											<tr>
 												<td><?= $i; ?></td>
 												<td><?= $row['name']; ?></td>
-												<td><?= $row['department_name']; ?></td>
-												<td><?= $row['primary_name']; ?></td>
-												<td><a href="officer_edit.php?id=<?= $row['id']; ?>" class="btn btn-default">Edit</a></td>
+												<td><?= $row['email']; ?></td>
+												<td><?= $row['major']; ?></td>
+												<td><?= $row['standing']; ?></td>
+												<td><?= $row['sign_up_date']; ?></td>
 											</tr>
 											<?php
 										}

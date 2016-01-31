@@ -48,16 +48,18 @@
 					<option value="junior">Junior</option>
 					<option value="senior">Senior</option>
 					<option value="graduate">Graduate School</option>
+					<option value="alumnus">Alumnus</option>
+					<option value="other">Others</option>
 				</select>
 			</label>
 		</div>	
-
+		<!--
 		<div class="subs">	
 			<label>
 				<input type="checkbox" name="subscription" value="subs"> Subscribe for updates on events and volunteer opportunities!
 			</label>
 		</div>
-
+		-->
 		<div>
 			<input type="submit" value="Sign Me Up!" />
 		</div>
@@ -79,18 +81,18 @@
 		var yyyy = tdate.getFullYear(); //yields year
 		var xxx = yyyy + "-" + mm + "-" + dd;
 
-		var subsVal = "no";
-		if($('input[name=subscription]').is(':checked') == true ) {
-			subsVal = "yes";
-		}
+		//var subsVal = "no";
+		//if($('input[name=subscription]').is(':checked') == true ) {
+		//	subsVal = "yes";
+		//}
 		
         var formData =
         {
-            name: $('input[name=name').val(),
+            name: $('input[name=name]').val(),
     		email: $('input[name=email]').val(),
     		major: $('input[name=major]').val(),
     		standing: $('#standing').find(":selected").text(),
-    		subscription: subsVal,
+    		//subscription: subsVal,
     		action: "submit_member",
     		dates: xxx
             

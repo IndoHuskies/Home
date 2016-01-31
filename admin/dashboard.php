@@ -7,8 +7,8 @@
     header("Location: index.php");
   }
 
-  adminHeader("Dashboard");
-  navbar();
+  adminHeader("Dashboard", "");
+  navbar("");
 ?>
 
 
@@ -17,7 +17,7 @@
     <div class="container-fluid">
       <div class="row">
 
-        <?php sideNavbar(); ?>
+        <?php sideNavbar(""); ?>
 
         <div id="main_content" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
           <!-- content -->

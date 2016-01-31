@@ -1,5 +1,5 @@
 <?php
-	require_once('../database.php');
+	require_once('../../database.php');
 
 	$name = $_POST['community_name'];
 	$type = $_POST['community_type'];
@@ -23,5 +23,5 @@
 
 	$stmt->execute();
 
-	header("Location: ../admin/dashboard.php");
+	header("Location: community.php");
 ?>

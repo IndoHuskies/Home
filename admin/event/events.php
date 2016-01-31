@@ -1,7 +1,7 @@
 <?php
-  	require_once("../models/config.php");
-	require_once('../database.php');
-	require_once('common.php');
+  	require_once("../../models/config.php");
+	require_once('../../database.php');
+	require_once('../common.php');
 
 
 $sql = "SELECT *
@@ -14,15 +14,15 @@ if(!isUserLoggedIn()) {
     header("Location: index.php");
 }
 
-adminHeader("Dashboard - Events");
-navbar();
+adminHeader("Dashboard - Events", "../");
+navbar("../");
 ?>
 <body>
 
     <div class="container-fluid">
       	<div class="row">
 
-        	<?php sideNavbar(); ?>
+        	<?php sideNavbar("../"); ?>
 
             <div id="main_content" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
 				<script src="jquery.Jcrop.min.js"></script>
