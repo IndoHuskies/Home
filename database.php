@@ -1,5 +1,8 @@
 <?php
-	
+	$servername = "localhost";
+	$db_name = "???";
+	$username = "???";
+	$password = "???";
 
 	// Create connection
 	try {
@@ -162,7 +165,7 @@ function EventJumbotron() {
     ================================================== -->
     <div class="jumbotron">
         <h1>Events</h1>
-        <p>Explore our upcomming and past events</p>
+        <p>Explore our upcoming and past events</p>
     </div><!-- /.jumbotron -->
     <?php
 }

@@ -2,7 +2,10 @@
 	require_once("../models/config.php");
 	require_once('common.php');
 
-	
+	$servername = "localhost";
+	$db_name = "???";
+	$username = "???";
+	$password = "???";
 
 	// Create connection
 	try {
@@ -11,6 +14,10 @@
 	} catch (PDOException $e) {
 		echo $e->getMessage();
 	}
+
+	if(!isUserLoggedIn()) {
+    	header("Location: index.php");
+  	}
 
 	$sql = "SELECT * FROM member";
 
