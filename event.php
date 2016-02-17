@@ -113,7 +113,7 @@
         }
 
         function upcomingEvent(item) {
-            var event_date = timeConverter(item.countdown);
+            var event_date = timeConverter(item.date);
             var event_desc = item.description.substring(0,200);
 
             var link = item.redirect;
@@ -123,14 +123,23 @@
             return '<div class="row featurette event-up"><div class="col-md-5 event-img"><img class="img-thumbnail" src="'+item.media+'"></div><div class="col-md-7 event-info"><h2>'+item.name+'</h2><p><strong>Date:</strong> '+event_date+'<br><strong>Time:</strong> '+link+'<br><strong>Location:</strong> ' + item.location + '</p><p class="lead">'+event_desc+'...</p><p><a class="btn btn-default" href="'+link+'" role="button">View details &raquo;</a></p></div></div><hr>';
         }
 
-        function timeConverter(UNIX_timestamp){
+        function timeConverter(itemDate){
+        /*
           var a = new Date(UNIX_timestamp*1);
           var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
           var year = a.getFullYear();
           var month = months[a.getMonth()];
-          var date = a.getDate() + 1;
+          var date = a.getDate();
           var time = date + ' ' + month + ' ' + year;
           return time;
+        */
+            var d = new Date(itemDate); 
+            var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+            var year = d.getFullYear();
+            var month = months[d.getMonth()];
+            var date = d.getDate() + 1;
+            var time = date + ' ' + month + ' ' + year;
+            return time;
         }
     </script>
 </body>

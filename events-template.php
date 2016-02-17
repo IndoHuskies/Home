@@ -92,17 +92,26 @@
     <script src="js/ie10-viewport-bug-workaround.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-            $('#date').append(timeConverter(<?php echo $result->countdown ?>))
+            $('#date').append(timeConverter("<?= $result->date ?>"))
         });
 
-        function timeConverter(UNIX_timestamp){
+        function timeConverter(itemDate){
+          /*
           var a = new Date(UNIX_timestamp*1);
           var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
           var year = a.getFullYear();
           var month = months[a.getMonth()];
-          var date = a.getDate() + 1;
+          var date = a.getDate();
           var time = date + ' ' + month + ' ' + year;
           return time;
+          */
+            var d = new Date(itemDate); 
+            var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+            var year = d.getFullYear();
+            var month = months[d.getMonth()];
+            var date = d.getDate() + 1;
+            var time = date + ' ' + month + ' ' + year;
+            return time;
         }
     </script>
 </body>
