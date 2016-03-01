@@ -42,7 +42,7 @@ navbar("../");
 						<ul class="col-md-6">
 							<li>Before checking in any items, please check the Inventory List below</li>
 							<li>If the same item already exists, then please edit the amount of the items</li>
-							<li>Remove items with 0 amount if needed</li>
+							<li>If an item is <strong>still</strong> in the checkout, <strong>don't</strong> delete the item even if it's with 0 amount</li>
 							<li>If needed, you can edit each item through the Inventory List</li>
 						</ul>
 						<ul class="col-md-6">
@@ -52,55 +52,6 @@ navbar("../");
 							<li>For returning items, please return the same amount you checked in</li>
 							<li>If the returned items are less than what it was borrowed, make a new check out ticket</li>
 						</ul>
-						<div class="col-md-6">
-							<form role="form" method="post" action="new_inventory.php">
-								<h2>Check-In</h2>
-								<hr>
-								<div class="form-group">
-									<label>
-										<label for="invent_name">Inventory Name</label>
-										<input type="text" class="form-control" id="invent_name" name="invent_name" placeholder="name">
-									</label>
-								</div>
-								<div class="form-group">
-									<label>
-										<label for="invent_amount">Amount</label>
-										<input type="number" class="form-control" id="invent_amount" name="invent_amount" placeholder="amount" value="0" min="0">
-									</label>
-								</div>
-								<div class="form-group">
-									<label>
-										<label for="invent_boxnum">Box Number</label>
-										<input type="text" class="form-control" id="invent_boxnum" name="invent_boxnum" placeholder="box number">
-									</label>
-								</div>
-								<button type="submit" class="btn btn-default">Submit</submit>
-							</form>
-						</div>
-						<div class="col-md-4">
-							<form id="invent_co_form" role="form" onsubmit="return false;">
-								<h2>Check-Out</h2>
-								<hr>
-								<div class="form-group">
-									<label for="invent_co_item">Item:</label>
-									<select class="form-control" name="invent_co_item" id="invent_co_item">
-										<option value="" disabled selected></option>
-									</select>
-								</div>
-								<div class="form-group" style="visibility:hidden;">
-									<label for="invent_co_amount">Amount:</label>
-									<input type="number" class="form-control" id="invent_co_amount" name="invent_co_amount" placeholder="amount" value="0" min="0" required>
-								</div>
-								<div class="form-group" id="invent_co_box" style="visibility:hidden">
-									<label></label>
-								</div>
-								<div class="form-group">
-									<label for="invent_co_pic">PIC:</label>
-									<input type="text" class="form-control" id="invent_co_pic" name="invent_co_pic" placeholder="PIC" required>
-								</div>
-								<button id="submit_co" type="submit" class="btn btn-default">Submit</submit>
-							</form>
-						</div>
 						<div class="col-md-12">
 							<h2 class="sub-header">Checkout List</h2>
 							<div class="table-responsive">
@@ -178,6 +129,56 @@ navbar("../");
 								</table>
 							</div>
 						</div>
+						<div class="col-md-6">
+							<form role="form" method="post" action="new_inventory.php">
+								<h2>Check-In</h2>
+								<hr>
+								<div class="form-group">
+									<label>
+										<label for="invent_name">Inventory Name</label>
+										<input type="text" class="form-control" id="invent_name" name="invent_name" placeholder="name">
+									</label>
+								</div>
+								<div class="form-group">
+									<label>
+										<label for="invent_amount">Amount</label>
+										<input type="number" class="form-control" id="invent_amount" name="invent_amount" placeholder="amount" value="0" min="0">
+									</label>
+								</div>
+								<div class="form-group">
+									<label>
+										<label for="invent_boxnum">Box Number</label>
+										<input type="text" class="form-control" id="invent_boxnum" name="invent_boxnum" placeholder="box number">
+									</label>
+								</div>
+								<button type="submit" class="btn btn-default">Submit</submit>
+							</form>
+						</div>
+						<div class="col-md-4">
+							<form id="invent_co_form" role="form" onsubmit="return false;">
+								<h2>Check-Out</h2>
+								<hr>
+								<div class="form-group">
+									<label for="invent_co_item">Item:</label>
+									<select class="form-control" name="invent_co_item" id="invent_co_item">
+										<option value="" disabled selected></option>
+									</select>
+								</div>
+								<div class="form-group" style="visibility:hidden;">
+									<label for="invent_co_amount">Amount:</label>
+									<input type="number" class="form-control" id="invent_co_amount" name="invent_co_amount" placeholder="amount" value="0" min="0" required>
+								</div>
+								<div class="form-group" id="invent_co_box" style="visibility:hidden">
+									<label></label>
+								</div>
+								<div class="form-group">
+									<label for="invent_co_pic">PIC:</label>
+									<input type="text" class="form-control" id="invent_co_pic" name="invent_co_pic" placeholder="PIC" required>
+								</div>
+								<button id="submit_co" type="submit" class="btn btn-default">Submit</submit>
+							</form>
+						</div>
+						
 					</div>
 				</div>
 

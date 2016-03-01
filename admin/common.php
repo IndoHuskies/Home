@@ -71,6 +71,7 @@ function sideNavbar($path) {
             <li id="community"><a href="<?= $path ?>community/community.php">Community</a></li>
             <li id="merchandise"><a href="<?= $path ?>merchandise/merchandise.php">Merchandise</a></li>
             <li id="member"><a href="<?= $path ?>member.php">Member</a></li>
+            <li id="inventory"><a href="<?= $path ?>inventory/inventory.php">Inventory</a></li>
         </ul>
     </div>
 <?php

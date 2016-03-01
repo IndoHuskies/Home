@@ -2,6 +2,19 @@ body{
 	font-family: 'Ubuntu', sans-serif;
 }
 
+.navbar-default{
+	background-color: rgb(129, 27, 20);
+	border-color: rgb(129, 27, 20);
+}
+
+.navbar-default .navbar-nav > li > a{
+	color:white;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus{
+	color: rgb(129, 27, 20);
+}
+
 #logo{
 	width: 100px;
 }

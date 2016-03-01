@@ -49,12 +49,15 @@
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
 
-    <div class="container marketing">
+    <div id="about-home" class="container marketing">
+        <hr class="featurette-divider">
 
     	<!-- Three columns of text below the carousel -->
     	<div class="row">
     		<div class="col-lg-4">
-    			<img src="img/Icon.png" alt="Generic placeholder image" style="width: 140px; height: 140px;">
+                <div>
+    			 <img src="img/about-us.png" alt="Generic placeholder image">
+                </div>
     			<h2>About Us</h2>
     			<p>ISAUW (Indonesian Student Association at the UW) is a non-profit cultural organization with the purpose of uniting the Indonesian community within the university as well as to promote our Indonesian culture to the community in the greater Seattle Area. </p>
 
@@ -62,17 +65,24 @@
     			</p>
     		</div><!-- /.col-lg-4 -->
     		<div class="col-lg-4">
-    			<img class="img-circle" src="http://th09.deviantart.net/fs71/PRE/i/2010/130/7/1/Indonesia_Grunge_Flag_by_think0.jpg" alt="Generic placeholder image" style="width: 140px; height: 140px;">
-    			<h2>Mission &amp; Vision</h2>
+                <div>
+    			 <img src="img/flag.png" alt="Generic placeholder image">
+    			</div>
+                <h2>Mission &amp; Vision</h2>
     			<p>To become the most leading and innovative Indonesian student association, in creating respectful, well-rounded, diverse yet nationalistic, young Indonesian leaders.</p>
                 <p>To hold events that would promote the many unique and diverse cultures of Indonesia to the Indonesian community and beyond</p>
                 <p>To unite and strengthen the bonds amongst the different Indonesiancommunities around the University of Washington, Greater Seattle Area, and the world</p>
                 <p>To provide a versatile learning experience through hands-on approaches</p>
             </div><!-- /.col-lg-4 -->
+            
     		<div class="col-lg-4">
-    			<img class="img-circle" src="img/logo_permias.png" alt="Generic placeholder image" style="width: 140px; height: 140px;">
-    			<h2>PERMIAS Nasional</h2>
-    			<p>May 25, 2013 marks the re-establishment of PERMIAS Nasional in Washington D.C. at the PERMIAS Congress 2013. PERMIAS Nasional was initiated to represent all chapters of PERMIAS as one body and to create a greater network of Indonesian students throughout the United States. As well as an umbrella organization, PERMIAS Nasional consists of 6 different committees and 23 councils from each listed PERMIAS.</p>
+                <div>
+    			 <img src="img/permias-nas.png" alt="Generic placeholder image">
+    			</div>
+                <h2>PERMIAS Nasional</h2>
+    			<p>May 25, 2013 marks the re-establishment of PERMIAS Nasional in Washington D.C. at the PERMIAS Congress 2013.</p>
+                <p>PERMIAS Nasional was initiated to represent all chapters of PERMIAS as one body and to create a greater network of Indonesian students throughout the United States.</p>
+                <p>As well as an umbrella organization, PERMIAS Nasional consists of 6 different committees and 23 councils from each listed PERMIAS.</p>
     			<p><a class="btn btn-default" href="http://permiasnasional.org/" target="_blank" role="button">View details &raquo;</a></p>
     		</div><!-- /.col-lg-4 -->
     	</div><!-- /.row -->
@@ -80,8 +90,10 @@
 
     	<!-- START THE FEATURETTES -->
 
+
     	<hr class="featurette-divider">
 
+        <!--
     	<div class="row featurette">
     		<div class="col-md-3">
     			<div>
@@ -98,8 +110,8 @@
     			</div>
     		</div>
     		<div class="col-md-9">
-    			<div id="home-event-up">
-                    <?php
+    			<div id="home-event-up"> -->
+                    <!--?php
                         $sql = "SELECT * 
                                 FROM  `event`
                                 ORDER BY `event`.`countdown` DESC
@@ -109,18 +121,18 @@
                         $stmt->execute();
 
                         $result = $stmt->fetch(PDO::FETCH_OBJ);
-                    ?>
-
+                    ?-->
+                    <!--
     				<h2>Upcoming Event</h2>
-    				    <a href="<?php echo $result->link ?>"><img class="img-thumbnail" src="<?php echo $result->media ?>"></a>
+    				    <a href="<?php //echo $result->link ?>"><img class="img-thumbnail" src="<?php //echo $result->media ?>"></a>
                    
-                    <!-- <a href="<?php echo $result->link ?>"><img class="img-thumbnail" src="img/volunteer-keraton-2015.jpg"></a> -->
-    			</div>
+                        <a href="<?php //echo $result->link ?>"><img class="img-thumbnail" src="img/volunteer-keraton-2015.jpg"></a> -->
+    			<!--</div>
     		</div>
     	</div>
-
+        
     	<hr class="featurette-divider">
-
+        -->
     	<!-- /END THE FEATURETTES -->
     </div><!-- /.container -->
 

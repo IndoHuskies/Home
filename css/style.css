@@ -6,6 +6,17 @@ h2 {
 	margin-bottom: 30px;
 }
 
+.navbar.navbar-default{
+	background-color: rgb(129, 27, 20);
+	border: none;
+}
+
+.navbar-default .navbar-nav > li > a{
+	color:white;
+	background-color: rgb(129, 27, 20);
+}
+
+
 #separator {
 	position: relative;
 	height: 20px;
@@ -71,6 +82,28 @@ h2 {
 	z-index: 1;
 }
 
+/* =========== ABOUT HOME ========== */
+#about-home.container.marketing {
+	text-align: center;
+}
+
+#about-home.container.marketing .col-lg-4 {
+	padding: 40px;
+}
+
+#about-home.container.marketing .col-lg-4 h2 {
+	border-bottom: 1px solid black;
+	padding-bottom: 5px;
+}
+
+#about-home.container.marketing .col-lg-4 div {
+	width: 100%;
+}
+
+#about-home.container.marketing .col-lg-4 div img {
+	width: 100%;
+}
+
 /* =================================== Footer ====================== */
 
 #footer-space {
@@ -133,7 +166,7 @@ footer .title {
 }
 
 .text {
-	position: absolute;
+	position: relative !important;
 	margin-left: -1px;
 	padding: 32px;
 	/* width: 30%; */
@@ -162,7 +195,8 @@ ul.social {
 ul.social > li {
 	margin: 0 5px;
 	font-size: 22px;
-	display: inline-block;
+	display: block !important;
+	margin-bottom: 5px !important;
 }
 
 ul.social > li > a {
@@ -171,19 +205,26 @@ ul.social > li > a {
 
 /* -- icons -- */
 ul.social.icons > li > a {
-	width: 32px;
-	height: 32px;
-	-webkit-background-size: 32px;
-	   -moz-background-size: 32px;
-	     -o-background-size: 32px;
-			background-size: 32px;
+	width: 64px !important;
+	height: 64px !important;
+	-webkit-background-size: 64px !important;
+	   -moz-background-size: 64px !important;
+	     -o-background-size: 64px !important;
+			background-size: 64px !important;
 	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	transition: all .2s ease-in-out;
 }
 
-.icon-twitter  	{ background-image: url(../img/01_twitter.png)	   }
-.icon-facebook 	{ background-image: url(../img/02_facebook.png)   }
-.icon-youtube  	{ background-image: url(../img/03_youtube.png)    }
-.icon-instagram { background-image: url(../img/10_instagram.png)  }
+ul.social.icons > li > a:hover {
+	transform: scale(1.1);
+}
+
+.icon-twitter  	{ background-image: url(../img/1456322442_Twitter.png) !important;	   }
+.icon-facebook 	{ background-image: url(../img/1456322433_Facebook.png) !important;  }
+.icon-youtube  	{ background-image: url(../img/1456322445_Youtube.png) !important;    }
+.icon-instagram { background-image: url(../img/1456322447_Instagram.png) !important;  }
 
 
 /* =================================== Officers ====================== */

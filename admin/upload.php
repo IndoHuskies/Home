@@ -68,5 +68,9 @@ function uploadImageFile() { // Note: GD library is required for this function
 }
 
 $sImage = uploadImageFile();
-echo '<img src="'.$sImage.'" class="img-thumbnail img-circle" alt="profile_preview" />';
+if (isset($_POST['loc-type'])) {
+    echo '<img src="../'.$sImage.'" class="img-thumbnail img-circle" alt="profile_preview" />';
+} else {
+    echo '<img src="'.$sImage.'" class="img-thumbnail img-circle" alt="profile_preview" />';
+}
 ?>

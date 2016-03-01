@@ -1,0 +1,3 @@
+[30-Jan-2016 20:32:50] PHP Warning:  Missing argument 2 for adminHeader(), called in /home3/isauw/public_html/admin/merchandise/merchandise.php on line 17 and defined in /home3/isauw/public_html/admin/common.php on line 4
+[30-Jan-2016 20:43:23] PHP Warning:  Missing argument 1 for navbar(), called in /home3/isauw/public_html/admin/merchandise/merchandise.php on line 18 and defined in /home3/isauw/public_html/admin/common.php on line 44
+[30-Jan-2016 20:43:23] PHP Warning:  Missing argument 1 for sideNavbar(), called in /home3/isauw/public_html/admin/merchandise/merchandise.php on line 25 and defined in /home3/isauw/public_html/admin/common.php on line 57

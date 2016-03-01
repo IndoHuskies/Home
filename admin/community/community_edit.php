@@ -85,8 +85,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 						</form>
 					</div>
 					<div class="col-md-6">
-						<form id="upload_form" enctype="multipart/form-data" method="post" action="upload.php" onsubmit="return checkForm()">
+						<form id="upload_form" enctype="multipart/form-data" method="post" action="../upload.php" onsubmit="return checkForm()">
 							<p class="bg-danger">NOTICE: Please upload an image for the Community</p>
+							<input type="hidden" name="loc-type" value="inner"/>
 							<hr>
 							<!-- hidden crop params -->
 							<input type="hidden" id="x1" name="x1" />

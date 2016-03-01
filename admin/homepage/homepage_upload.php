@@ -25,7 +25,7 @@ function uploadImageFile() {
 	$extension = end($temp);
 
 	$sDir = md5(time().rand());
-	$sTempFileName = '../img/home/' . $sDir;
+	$sTempFileName = '../../img/home/' . $sDir;
 	$sResultFileName = '';
 
 	if ((($_FILES["image_file"]["type"] == "image/gif")

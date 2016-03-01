@@ -25,8 +25,8 @@ navbar("../");
         	<?php sideNavbar("../"); ?>
 
             <div id="main_content" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
-				<script src="jquery.Jcrop.min.js"></script>
-				<script src="img-crop-scripts.js"></script>
+				<script src="../jquery.Jcrop.min.js"></script>
+				<script src="../img-crop-scripts.js"></script>
 				<hr>
 				<div class="container">
 					<div class="row">
@@ -72,8 +72,9 @@ navbar("../");
 							</form>
 						</div>
 						<div class="col-md-6">
-							<form id="upload_form" enctype="multipart/form-data" method="post" action="upload.php" onsubmit="return checkForm()">
+							<form id="upload_form" enctype="multipart/form-data" method="post" action="../upload.php" onsubmit="return checkForm()">
 					          <p class="bg-danger">NOTICE: Please upload an image for the Merchandise</p>
+					          <input type="hidden" name="loc-type" value="inner"/>
 					          <hr>
 					                      <!-- hidden crop params -->
 					                      <input type="hidden" id="x1" name="x1" />
@@ -110,7 +111,7 @@ navbar("../");
 						<div class="col-md-12">
 							<h2 class="sub-header">Merchandise List</h2>
 							<div class="table-responsive">
-								<table id="event-table" class="display" cellspacing="0" width="100%">
+								<table id="merchandise-table" class="display" cellspacing="0" width="100%">
 									<thead>
 										<tr>
 											<th>#</th>
@@ -152,7 +153,7 @@ navbar("../");
 				</div>
 				<script>
 					$(document).ready(function() {
-						$('#event-table').DataTable();
+						$('#merchandise-table').DataTable();
 						$(".editor").jqte();
 
 						$('#upload_form').ajaxForm({ 
@@ -167,7 +168,7 @@ navbar("../");
 							}
 						});
 
-						$(".comm-edit").click(function(e){
+						/*$(".comm-edit").click(function(e){
 							e.preventDefault();
 							var link = $(this).attr("href");
 							console.log(link);
@@ -175,7 +176,7 @@ navbar("../");
 							$.ajax({url:link,success:function(result){
 								$("#main_content").html(result);
 							}});
-						});
+						});*/
 					});
 				</script>
 			</div>
