@@ -1,0 +1,235 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="icon" href="img/icon.png">
+
+	<title>KERATON 2015</title>
+	<!-- Bootstrap core CSS -->
+	<link href="css/bootstrap.css" rel="stylesheet"> 
+
+	<style type="text/css">
+	body {
+		background-color: rgb(254, 246, 231);
+	}
+	#wrapper {
+		background-color: white;
+		width: 70vw;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 50px;
+		margin-bottom: 50px;
+		padding: 20px;
+		border: 1px solid #ddd;
+		border-radius: 1%;
+		box-shadow: 3px 3px #eee;
+		overflow: hidden;
+
+	}
+
+	#banner img {
+		width: 100%;
+	}
+
+	.form-control {
+		margin-bottom: 10px;
+		background-color: #f5f5f5;
+	}
+
+	input.btn {
+		margin-top: 20px;
+		width: 80%;
+		color: white;
+		background-color: #ec3a4f;
+		box-shadow: 3px 3px #eee;
+	}
+
+	input.btn:hover {
+		color: white;
+		background-color: #fc3a4f
+	}
+	</style>
+</head>
+<body>
+
+	<div id="wrapper">
+		<div id="banner">
+			<img src="img/volunteer-keraton-2015.jpg">
+		</div>
+		<hr>
+		<form class="col-md-12 form-horizontal" id="volunteer-form" method="POST" action="http://isauw.org/events/keraton-2015-volunteer.php">
+			<div class="form-group">
+				<label for="inputName" class="col-sm-3 control-label">Name</label>
+				<div class="col-sm-9">
+					<input type="text" name="name" class="form-control" id="inputName">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputEmail" class="col-sm-3 control-label">Email</label>
+				<div class="col-sm-9">
+					<input type="email" name="email" class="form-control" id="inputEmail">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputPhone" class="col-sm-3 control-label">Phone</label>
+				<div class="col-sm-9">
+					<input type="text" name="phone" class="form-control" id="inputPhone">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputShirtSize" class="col-sm-3 control-label">T-Shirt Size</label>
+				<div class="col-sm-9">
+					<select name="shirt" class="form-control" id="inputShirtSize" style="max-width:10%;">
+						<option disabled selected> -- </option>
+						<option value="s">S</option>
+						<option value="ml">M</option>
+						<option value="l">L</option>
+						<option value="xl">XL</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputWork" class="col-sm-3 control-label">Choice of Volunteer Work<br><small>Please pick from most to least wanted</small></label>
+				<div class="col-sm-9" id="inputWork">
+					<select id="work1" name="vol_1" class="form-control">
+						<option disabled selected> -- select an option -- </option>
+						<option value="usher">Usher</option>
+						<option value="event-photo">Event Photographer</option>
+						<option value="vendor">Food Vendor Asistant</option>
+						<option value="prep">Event Preparation</option>
+						<option value="cleaning">Event Clean Up</option>
+					</select>
+					<select id="work2" name="vol_2" class="form-control">
+						<option disabled selected> -- select an option -- </option>
+						<option value="usher">Usher</option>
+						<option value="event-photo">Event Photographer</option>
+						<option value="vendor">Food Vendor Asistant</option>
+						<option value="prep">Event Preparation</option>
+						<option value="cleaning">Event Clean Up</option>
+					</select>
+					<select id="work3" name="vol_3" class="form-control">
+						<option disabled selected> -- select an option -- </option>
+						<option value="usher">Usher</option>
+						<option value="event-photo">Event Photographer</option>
+						<option value="vendor">Food Vendor Asistant</option>
+						<option value="prep">Event Preparation</option>
+						<option value="cleaning">Event Clean Up</option>
+					</select>
+					<select id="work4" name="vol_4" class="form-control">
+						<option disabled selected> -- select an option -- </option>
+						<option value="usher">Usher</option>
+						<option value="event-photo">Event Photographer</option>
+						<option value="vendor">Food Vendor Asistant</option>
+						<option value="prep">Event Preparation</option>
+						<option value="cleaning">Event Clean Up</option>
+					</select>
+					<select id="work5" name="vol_5" class="form-control">
+						<option disabled selected> -- select an option -- </option>
+						<option value="usher">Usher</option>
+						<option value="event-photo">Event Photographer</option>
+						<option value="vendor">Food Vendor Asistant</option>
+						<option value="prep">Event Preparation</option>
+						<option value="cleaning">Event Clean Up</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="inputHour" class="col-sm-3 control-label">Volunteer Hour</label>
+				<div class="col-sm-9">
+					<input type="number" name="hour" class="form-control" id="inputHour" min="1" max="24" style="max-width:10%;">
+				</div>
+			</div>
+
+			<div class="form-group" style="text-align:center;">
+				<input id="inputDisclaimer" type="checkbox"> Disclaimer, <a href="#" data-toggle="modal" data-target="#disclaimerModal">here</a>
+				<div class="modal fade" id="disclaimerModal" tabindex="-1" role="dialog" aria-labelledby="disclaimerModal" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-body">
+								<h3>Disclaimer</h3>
+								<p>
+									Choice of volunteer is at a "as-needed" basis. We will try assign you to the position you have indicated from the form in that order,
+									if your number one pick is filled, we will then choose the second one and so on. All volunteers will have to attend a mandatory orientation,
+									details of where and when the orientation takes place will be sent via email.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="bg-success" id="sucess"></p>
+			<div class="form-group" style="text-align:center;">
+				<input type="submit" class="btn btn-lg" disabled>
+			</div>
+
+		</form>
+	</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/docs.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="js/ie10-viewport-bug-workaround.js"></script>
+
+<script type="text/javascript">
+  $(document).ready(function (){
+    validate();
+    $('#inputName, #inputPhone, #inputEmail, #inputHour').keyup(validate);
+    $('#inputWork #work1, #inputWork #work2, #inputWork #work3, #inputWork #work4, #inputWork #work5').change(validate);
+    $('#inputDisclaimer').change(validate);
+
+    $("#volunteer-form").submit(function(e) {
+        var formData =
+        {
+            name: $('#inputName').val(),
+            email: $('#inputEmail').val(),
+            phone: $('#inputPhone').val(),
+            hour: $('#inputHour').val(),
+            shirt: $('#inputShirtSize').val(),
+            vol_1: $('#inputWork #work1').val(),
+            vol_2: $('#inputWork #work2').val(),
+            vol_3: $('#inputWork #work3').val(),
+            vol_4: $('#inputWork #work4').val(),
+            vol_5: $('#inputWork #work5').val()
+        }
+
+        e.preventDefault(); //STOP default action
+
+        $.ajax({
+            url: 'http://isauw.org/events/keraton-2015-volunteer.php',
+            type: 'POST',
+            data: formData
+        }).done(function( msg ) {
+            alert("Thank you! We will be in contact with you shortly");
+        }).fail(function() {
+            alert("Sorry. Server unavailable. ");
+        });
+
+        $("#volunteer-form")[0].reset();
+    });
+});
+
+function validate(){
+    if ($('#inputName').val().length   >   0   &&
+        $('#inputEmail').val().length  >   0   &&
+        $('#inputPhone').val().length    >   0 && 
+        $('#inputHour').val().length > 0 &&
+        $('#inputWork #work1').prop('selectedIndex') != 0 && 
+        $('#inputWork #work2').prop('selectedIndex') &&
+        $('#inputWork #work3').prop('selectedIndex') &&
+        $('#inputWork #work4').prop('selectedIndex') &&
+        $('#inputWork #work5').prop('selectedIndex') &&
+        $('#inputDisclaimer').prop("checked")) {
+        $("input[type=submit]").prop("disabled", false);
+}
+else {
+    $("input[type=submit]").prop("disabled", true);
+}
+}
+</script>
+</body>
+</html>

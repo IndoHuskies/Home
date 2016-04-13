@@ -172,18 +172,6 @@ TopHeader("ISAUW | " . $event_name, "");
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="inputShirtSize" class="col-sm-4 control-label">T-Shirt Size</label>
-                                <div class="col-sm-8">
-                                    <select name="shirt" class="form-control" id="inputShirtSize" style="max-width:10%;">
-                                        <option disabled selected> -- </option>
-                                        <option value="s">S</option>
-                                        <option value="ml">M</option>
-                                        <option value="l">L</option>
-                                        <option value="xl">XL</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
                                 <label for="inputWork" class="col-sm-4 control-label">Choice of Volunteer Work<br><small>Please pick from most to least wanted</small></label>
                                 <div class="col-sm-8" id="inputWork">
                                     <select id="work1" name="v_1" class="form-control">
@@ -345,7 +333,6 @@ TopHeader("ISAUW | " . $event_name, "");
             email: $('#inputEmail').val(),
             phone: $('#inputPhone').val(),
             //hour: $('#inputHour').val(),
-            shirt: $('#inputShirtSize').val(),
             v_1: $('#inputWork #work1').val(),
             v_2: $('#inputWork #work2').val(),
             v_3: $('#inputWork #work3').val(),

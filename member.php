@@ -1,36 +1,49 @@
 <?php
 	require_once("../models/config.php");
-	require_once('../database.php');
 	require_once('common.php');
 
-	$sql = "SELECT * FROM Keraton_2016_volunteer";
+	$servername = "localhost";
+	$db_name = "isauw_member";
+	$username = "isauw";
+	$password = "Welcome2014";
 
-	$stmt = $conn->prepare($sql);
-	$stmt->execute();
-	$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	// Create connection
+	try {
+		$conn = new PDO("mysql:host=$servername;dbname=$db_name", $username, $password);
+		//Connect to database
+	} catch (PDOException $e) {
+		echo $e->getMessage();
+	}
 
 	if(!isUserLoggedIn()) {
     	header("Location: index.php");
   	}
 
-	adminHeader("Dashboard - Keraton 2016 Volunteer", "");
-	navbar("");
+	$sql = "SELECT * FROM member";
 
+	$stmt = $conn->prepare($sql);
+	$stmt->execute();
+	$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+adminHeader("Dashboard - Member", "");
+navbar("");
 ?>
-
 <body>
-	<div class="container-fluid">
-		<div class="row">
-			<?php sideNavbar(""); ?>
 
-			<div id="main_content" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
+    <div class="container-fluid">
+      	<div class="row">
+
+        	<?php sideNavbar(""); ?>
+
+            <div id="main_content" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
 				<script src="jquery.Jcrop.min.js"></script>
 				<script src="img-crop-scripts.js"></script>
 				<hr>
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
-							<h2 class="sub-header">Volunteer</h2>
+							<h2 class="sub-header">Member List</h2>
+							<h3>Total member: <?= sizeof($result) ?></h3>
 							<div class="table-responsive">
 								<table id="event-table" class="display" cellspacing="0" width="100%">
 									<thead>
@@ -38,13 +51,9 @@
 											<th>#</th>
 											<th>Name</th>
 											<th>Email</th>
-											<th>Phone</th>
-											<th>Volunteer 1</th>
-											<th>Volunteer 2</th>
-											<th>Volunteer 3</th>
-											<th>Time A</th>
-											<th>Time B</th>
-											<th>Time C</th>
+											<th>Major</th>
+											<th>Standing</th>
+											<th>Sign-up Date</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -57,13 +66,9 @@
 												<td><?= $i; ?></td>
 												<td><?= $row['name']; ?></td>
 												<td><?= $row['email']; ?></td>
-												<td><?= $row['phone']; ?></td>
-												<td><?= $row['v_1']; ?></td>
-												<td><?= $row['v_2']; ?></td>
-												<td><?= $row['v_3']; ?></td>
-												<td><?= $row['t_1']; ?></td>
-												<td><?= $row['t_2']; ?></td>
-												<td><?= $row['t_3']; ?></td>
+												<td><?= $row['major']; ?></td>
+												<td><?= $row['standing']; ?></td>
+												<td><?= $row['sign_up_date']; ?></td>
 											</tr>
 											<?php
 										}
@@ -83,4 +88,4 @@
 		</div>
 	</div>
 </body>
-</html>				
+</html>
