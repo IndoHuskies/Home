@@ -78,8 +78,11 @@
           <ul class="nav navbar-nav navbar-right">
             <li><a href="../index.php">HOME</a></li>
             <li><a href="../officers.php">OFFICERS</a></li>
+            <li><a href="../sign-up/member.html">MEMBERS</a></li>
             <li class="active"><a href="#contact">ISAUW CARD</a></li>
+            <li><a href="../merchandise/merchandise.php">MERCHANDISE</a></li>
             <li><a href="../event.php">EVENT</a></li>
+            <li><a href="../Keraton2016">KERATON 2016</a></li>
             <li><a href="../community.php">COMMUNITY</a></li>
           </ul>
         </div><!--/.nav-collapse -->
